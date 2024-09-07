@@ -8,7 +8,6 @@ public class GoalGrid
         Benjamin benjamin = new Benjamin();
         
         System.out.println("Hello, I'm Van");
-        System.out.println('objName'.x);
         System.out.println(erin.x);
         System.out.println(ammar.x);
         System.out.println(quynh.x);
