@@ -1,4 +1,4 @@
-public class GoalGrid
+public class van
 {
     public static void main(String[] args) {
         Erin erin = new Erin();
