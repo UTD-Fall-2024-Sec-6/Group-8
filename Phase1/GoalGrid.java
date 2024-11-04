@@ -1,4 +1,4 @@
-public class van
+public class GoalGrid //formerly Van.java
 {
     public static void main(String[] args) {
         Erin erin = new Erin();
