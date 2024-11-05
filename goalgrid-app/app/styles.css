@@ -1,0 +1,48 @@
+.SideMenu {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  row-gap: 20px;
+  place-items: center;
+
+}
+
+.GoalGridAppLayout {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  column-gap: 10px;
+  background-color: #A0CA92;
+  padding: 40px 20px;
+}
+
+.Grid {
+  background-color: #D8F793;
+}
+
+.MenuButton {
+  background-color: #D8F793;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  /*padding: 10px;*/
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  transition-duration: 0.5s;
+  transition-property: background-color;
+}
+
+.MenuButton:hover {
+  background-color: #bbd681;
+  cursor: pointer;
+}
+
+.MenuButton:active {
+  background-color: #e9ffba;
+}
+
+.SettingsButton {
+  background-color: #D8F793;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+}
