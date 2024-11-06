@@ -46,3 +46,11 @@
   border-color: black;
   border-width: 1px;
 }
+
+.false {
+  background-color: azure;
+}
+
+.true {
+  background-color: rgb(0, 255, 0);
+}

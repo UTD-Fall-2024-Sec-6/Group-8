@@ -51,7 +51,7 @@ export default function AddGoals() {
     if (list[index].isCompleted === false) {
       list[index].isCompleted = true;
       toggleComplete(complete + 1);
-      document.getElementById("complete" + id).style["background-color"] = "rgb(20,200,20)";
+      document.getElementById("complete" + id).style["background-color"] = "rgb(0,255,0)";
     } else {
       list[index].isCompleted = false;
       toggleComplete(complete + 1);
@@ -82,7 +82,7 @@ export default function AddGoals() {
             return (
             <li key={aGoal.goalID}>
               <div>{aGoal.desc}</div>
-              <button id={"complete" + aGoal.goalID} onClick={() => completeGoal(aGoal.goalID)}>Check</button>
+              <button className={aGoal.isCompleted.toString()} id={"complete" + aGoal.goalID} onClick={() => completeGoal(aGoal.goalID)}>Check</button>
             </li> 
             )
           })
