@@ -3,17 +3,20 @@
     Allows for the creation, and editing, of goals.
 */
 
-class goal
+export class Goal
 {
-    constructor(goalID, desc, gridID,                   // Creates goal when
-                isCompleted, rowPosition, colPosition)  // new instance is created.
+    constructor(goalID, desc, 
+                //gridID,                  
+                isCompleted, 
+                //rowPosition, colPosition
+            )  // Creates goal when new instance is created.
     {
         this.goalID = goalID;
         this.desc = desc;
-        this.gridID = gridID;
+        //this.gridID = gridID;
         this.isCompleted = isCompleted;
-        this.rowPosition = rowPosition;
-        this.colPosition = colPosition;
+        //this.rowPosition = rowPosition;
+        //this.colPosition = colPosition;
     }
     
     // Returns the goalID
@@ -36,8 +39,8 @@ class goal
 }
 
 // testing area //
-
-goal1 = new goal(1, "hello", 2, false, 3, 4);
+/*
+goal1 = new Goal(1, "hello", 2, false, 3, 4);
 console.log(goal1.desc);    // should output 'hello'
 
 goal1.editGoal("goodbye");
@@ -46,5 +49,5 @@ console.log(goal1.desc);    // should output 'goodbye'
 goal1.markComplete();
 console.log(goal1.isCompleted); // should output true (1)
 console.log(goal1.getGoal()); // should output 1
-
+*/
 

@@ -1,4 +1,6 @@
 import { Poppins } from 'next/font/google'
+import SideMenu from "./components/sidemenu.js"
+import styles from "./styles.css";
 
 export const metadata = {
   title: "Goal Grid App",
@@ -11,7 +13,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={poppins.className}>
-        {children}
+        <div className="GoalGridAppLayout">
+          <SideMenu/>
+          {children}
+        </div>
       </body>
     </html>
   );
