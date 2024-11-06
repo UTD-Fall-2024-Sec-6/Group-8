@@ -34,7 +34,13 @@ export class Goal
     // Marks the goal complete
     markComplete()
     {
-        this.isCompleted = true;
+        if(this.isCompleted == false) {
+            this.isCompleted = true;
+        }
+        else {
+            this.isCompleted = false;
+        }
+        console.log(this.isCompleted);
     }
 }
 
