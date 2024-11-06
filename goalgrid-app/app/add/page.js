@@ -1,17 +1,38 @@
 'use client';
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Goal } from './goal.js';
 
 export default function AddGoals() {
-  const [list, setList] = useState([]);
   const [description, setDescription] = useState("");
+
+  const [list, setList] = useState( () => {
+    if(typeof window !== 'undefined') {
+      const localValue = localStorage.getItem("list"); //"list" is the name of the item storing the "goals"
+      if(localValue == null) return [];
+
+      return JSON.parse(localValue);
+    }
+    else { //Handles localStorage not defined
+      return [];
+    }
+  });
   
+  useEffect( () => { 
+    if(typeof window !== 'undefined') { 
+      localStorage.setItem("list", JSON.stringify(list))
+    }
+  }, [list])
+
   const addGoal = (desc) => {
     let goal = new Goal(1, desc, false);
     setList([...list, goal]);
 
     setDescription("");
+  }
+
+  const clearList = () => {
+    setList([]);
   }
 
   return(
@@ -25,6 +46,7 @@ export default function AddGoals() {
       />
 
       <button onClick={() => addGoal(description)}>Add</button>
+      <button onClick={() => clearList()}>Clear List</button>
 
       <p>Existing Goals List</p>
 
