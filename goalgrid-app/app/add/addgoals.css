@@ -1,7 +1,7 @@
 .addgoals-content {
   justify-content: center; /*places it center row, but stretches out items*/
   align-items: center; /* returns items to normal size */
-  border: 1px red solid;
+  /*border: 1px red solid;*/
 
   display:flex;
   flex-direction: column;
@@ -65,5 +65,5 @@
 }
 
 .true {
-  background-color: rgb(0, 255, 0);
+  background-color: #ECA400;
 }

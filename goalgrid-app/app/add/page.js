@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Goal } from './goal.js';
 import styles from "./addgoals.css";
 import { IoIosCheckmark } from "react-icons/io";
+import Link from 'next/link';
 
 export default function AddGoals() {
   const [description, setDescription] = useState(""); //This state is used to retrieve the user input in "Create/Add Goals" page.
@@ -50,18 +51,18 @@ export default function AddGoals() {
   }
 
   const completeGoal = (id) => {
-    const index = list.indexOf(list.find((element) => element.getGoalID() == id));
+    const index = list.indexOf(list.find((element) => element.goalID == id));
     
     if (list[index].isCompleted === false) {
-      //list[index].isCompleted = true;
-      document.getElementById("complete" + id).style["background-color"] = "rgb(0,255,0)";
+      list[index].isCompleted = true;
+      document.getElementById("complete" + id).style["background-color"] = "#ECA400";
     } else {
-      //list[index].isCompleted = false;
+      list[index].isCompleted = false;
       document.getElementById("complete" + id).style["background-color"] = "azure";
     }
 
     toggleComplete(complete + 1); //this lets React know
-    list[index].markComplete();
+    //list[index].markComplete(); //<-- The functions don't work on the Goals in the List once the page reloads. BUG, 
   }
 
   return(
@@ -69,12 +70,16 @@ export default function AddGoals() {
       /*width: '1080px',
       height: '1920px',*/
       display: 'flex',
+      flexDirection: 'row',
       height: '100vh',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       backgroundImage: `url("images/8.png")`,
     }}>
-      <div className="addgoals-content">
+      <div style={{width: '15%', placeContent: 'center', alignItems: 'center', display: 'flex', flexDirection: 'column'}}>
+      <Link href="/"> <button style={{marginLeft: '200px'}} className="MenuButton">Grid</button> </Link>
+      </div>
+      <div style={{flex: '1'}}className="addgoals-content">
         <h1 className="addgoal-title">Goals</h1>
 
         <input 
@@ -93,9 +98,9 @@ export default function AddGoals() {
           {
             list.map( (aGoal) => {
               return (
-              <li key={aGoal.getGoalID()} className="addgoal-listitem">
+              <li key={aGoal.goalID} className="addgoal-listitem">
 
-                <button className={aGoal.isCompleted.toString()} id={"complete" + aGoal.getGoalID()} onClick={() => completeGoal(aGoal.getGoalID())}><IoIosCheckmark size={20}/></button>
+                <button className={aGoal.isCompleted.toString()} id={"complete" + aGoal.goalID} onClick={() => completeGoal(aGoal.goalID)}><IoIosCheckmark size={20}/></button>
                 <div>{aGoal.desc}</div>
 
               </li> 
@@ -104,6 +109,8 @@ export default function AddGoals() {
           }
         </ul>
 
+      </div>
+      <div style={{width: '15%'}}>
       </div>
       
     </div>
