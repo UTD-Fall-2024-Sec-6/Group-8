@@ -20,7 +20,7 @@ export class Goal
     }
     
     // Returns the goalID
-    getGoal()
+    getGoalID()
     {
         return this.goalID;
     }
@@ -40,7 +40,7 @@ export class Goal
         else {
             this.isCompleted = false;
         }
-        console.log(this.isCompleted);
+        console.log(this.desc + " is " + this.isCompleted);
     }
 }
 
