@@ -13,12 +13,16 @@ export default function AddGoals() {
   //"List" is an array storing all the goals, as of now the goals are stored in localStorage (website memory)
   const [list, setList] = useState( () => {
     if(typeof window !== 'undefined') {
-      const localValue = localStorage.getItem("list"); //"list" is the name of the item storing the "goals"
-      if(localValue == null) return [];
+      let localValue = localStorage.getItem("list"); //"list" is the name of the item storing the "goals"
+      if(localValue == null) return []; //Scenario where user clears goals before exiting
+      else {
+        localValue = JSON.parse(localValue);
+        localValue = localValue.map(aGoal => Object.assign(new Goal(), aGoal));
+      }
 
-      return JSON.parse(localValue);
+      return localValue;
     }
-    else { //Handles localStorage not defined
+    else { //Handles localStorage not defined (Scenario when first time app use)
       return [];
     }
   });
@@ -51,18 +55,18 @@ export default function AddGoals() {
   }
 
   const completeGoal = (id) => {
-    const index = list.indexOf(list.find((element) => element.goalID == id));
+    const index = list.indexOf(list.find((element) => element.getGoalID() == id));
     
     if (list[index].isCompleted === false) {
-      list[index].isCompleted = true;
+      //list[index].isCompleted = true;
       document.getElementById("complete" + id).style["background-color"] = "#ECA400";
     } else {
-      list[index].isCompleted = false;
+      //list[index].isCompleted = false;
       document.getElementById("complete" + id).style["background-color"] = "azure";
     }
 
     toggleComplete(complete + 1); //this lets React know
-    //list[index].markComplete(); //<-- The functions don't work on the Goals in the List once the page reloads. BUG, 
+    list[index].markComplete(); //<-- The functions don't work on the Goals in the List once the page reloads. BUG, 
   }
 
   return(
@@ -98,9 +102,9 @@ export default function AddGoals() {
           {
             list.map( (aGoal) => {
               return (
-              <li key={aGoal.goalID} className="addgoal-listitem">
+              <li key={aGoal.getGoalID()} className="addgoal-listitem">
 
-                <button className={aGoal.isCompleted.toString()} id={"complete" + aGoal.goalID} onClick={() => completeGoal(aGoal.goalID)}><IoIosCheckmark size={20}/></button>
+                <button className={aGoal.isCompleted.toString()} id={"complete" + aGoal.getGoalID()} onClick={() => completeGoal(aGoal.getGoalID())}><IoIosCheckmark size={20}/></button>
                 <div>{aGoal.desc}</div>
 
               </li> 
