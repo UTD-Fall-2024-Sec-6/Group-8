@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function SideMenu() {
   return (
     <div className="SideMenu">
-      <div> <h1>GoalGrid</h1> </div>
+      <div> <h1 className="GoalGrid-Title">GoalGrid</h1> </div>
       <div> 
           <a href="/add">
           <button className="MenuButton">

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Laila:wght@300;400;500;600;700&display=swap');
+
 .addgoals-content {
   /*
   justify-content: center; */ /*places it center row, but stretches out items*/
@@ -12,6 +14,7 @@
 
 .addgoal-title {
   margin: 5px;
+  font-family: Laila;
 }
 
 .addgoal-input {
@@ -53,6 +56,7 @@
   place-items: center;
   margin-bottom: 20px;
   font-weight: bold;
+  font-family: Laila;
   height: 40px
 }
 
