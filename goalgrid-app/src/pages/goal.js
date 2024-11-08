@@ -12,7 +12,14 @@ export class Goal
             )  // Creates goal when new instance is created.
     {
         this.goalID = goalID;
-        this.desc = desc;
+        if (desc == "")
+        {
+            this.desc = "Empty Goal";
+        }
+        else
+        {
+            this.desc = desc;
+        }
         //this.gridID = gridID;
         this.isCompleted = isCompleted;
         //this.rowPosition = rowPosition;
@@ -49,17 +56,3 @@ export class Goal
         //return this.isCompleted
     }
 }
-
-// testing area //
-/*
-goal1 = new Goal(1, "hello", 2, false, 3, 4);
-console.log(goal1.desc);    // should output 'hello'
-
-goal1.editGoal("goodbye");
-console.log(goal1.desc);    // should output 'goodbye'
-
-goal1.markComplete();
-console.log(goal1.isCompleted); // should output true (1)
-console.log(goal1.getGoal()); // should output 1
-*/
-

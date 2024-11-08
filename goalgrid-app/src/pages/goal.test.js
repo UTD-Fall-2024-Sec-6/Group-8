@@ -11,8 +11,14 @@ describe(Goal, () => {
 
   //Test 2 for Mark Complete (UC9)
   it("Test #2 for Mark Complete: When goal is initially true, button click, output should be false", () => {
-    const testGoal = new Goal(Math.random(), "Test 1", true);
+    const testGoal = new Goal(Math.random(), "Test 2", true);
     testGoal.markComplete();
     expect(testGoal.isCompleted).toBe(false);
+  })
+
+  //Test 3 for Create Goal
+  it("Test #1 for Create Goal: When goal description is empty, create a goal with description 'Empty Goal'", () => {
+    const testGoal = new Goal(Math.random(), "", false);
+    expect(testGoal.desc).toBe("Empty Goal");
   })
 })
