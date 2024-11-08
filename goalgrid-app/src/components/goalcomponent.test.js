@@ -4,7 +4,16 @@ import GoalComponent from "./goalcomponent"
 import { Goal } from '../pages/goal.js';
 
 describe(GoalComponent, () => {
-  //Test 1 for Add Goal (UC4): 
+  //Test 1 for Add Goal (UC4):
+  
+
+  //Test 2 for Add Goal (UC4): 
+  it("User passes input longer than 25 characters, goal description output is only first 25 characters", () => {
+    const { getByTestID } = render(<GoalComponent aGoal={new Goal(Math.random(), "123456789012345678901234567890", false)} completeGoal={null}/>)
+    const goalDescription = screen.getByTestId("description").textContent;
+    expect(goalDescription).toEqual("1234567890123456789012345");
+  })
+  //Test 3 for Add Goal (UC4): 
   it("User passes empty input, goal description should say 'Empty Goal'", () => {
     const { getByTestID } = render(<GoalComponent aGoal={new Goal(Math.random(), "", false)} completeGoal={null}/>)
     const goalDescription = screen.getByTestId("description").textContent;
