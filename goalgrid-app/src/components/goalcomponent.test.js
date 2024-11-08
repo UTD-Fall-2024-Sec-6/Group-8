@@ -23,4 +23,18 @@ describe(GoalComponent, () => {
     const goalDescription = screen.getByTestId("description").textContent;
     expect(goalDescription).toEqual("Empty Goal");
   })
+
+  //Test 4 for Add Goal (UC4):
+  it("Goal is passed an ID < 0, desc should say 'ERROR'", () => {
+    const { getByTestID } = render(<GoalComponent aGoal={new Goal(-1, "", false)} completeGoal={null}/>)
+    const goalDescription = screen.getByTestId("description").textContent;
+    expect(goalDescription).toEqual("ERROR");
+  })
+
+  //Test 5 for Add Goal (UC4):
+  it("Goal is passed an ID > 25, desc should say 'ERROR'", () => {
+    const { getByTestID } = render(<GoalComponent aGoal={new Goal(26, "", false)} completeGoal={null}/>)
+    const goalDescription = screen.getByTestId("description").textContent;
+    expect(goalDescription).toEqual("ERROR");
+  })
 })
