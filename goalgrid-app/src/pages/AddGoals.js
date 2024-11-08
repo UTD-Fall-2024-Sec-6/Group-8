@@ -1,10 +1,11 @@
-'use client'; //Next.js needs this to allow React hooks to be used on user-side.
-
 import { useEffect, useState } from "react";
 import { Goal } from './goal.js';
 import styles from "./addgoals.css";
 import { IoIosCheckmark } from "react-icons/io";
-import Link from 'next/link';
+import createGoal from './createGoal.js';
+import GoalComponent from "../components/goalcomponent.js";
+//import GoalComponent from "../components/goalcomponent.js";
+import { Link } from "react-router-dom";
 
 export default function AddGoals() {
   const [description, setDescription] = useState(""); //This state is used to retrieve the user input in "Create/Add Goals" page.
@@ -43,10 +44,21 @@ export default function AddGoals() {
     }
   }, [complete])
 
+  /*
   const addGoal = (desc) => {
+    if (desc == "") {
+      desc = "Empty Goal";
+    }
     let goal = new Goal(Math.random(), desc, false);
     setList([...list, goal]);
 
+    setDescription("");
+  }
+  */
+  const addGoal = (desc) => {
+    const goal = createGoal(desc);
+
+    setList([...list, goal]);
     setDescription("");
   }
 
@@ -81,7 +93,9 @@ export default function AddGoals() {
       backgroundImage: `url("images/8.png")`,
     }}>
       <div style={{width: '15%', placeContent: 'center', alignItems: 'center', display: 'flex', flexDirection: 'column'}}>
-      <Link href="/"> <button style={{marginLeft: '200px'}} className="MenuButton">Grid</button> </Link>
+        <Link to="/grid">
+          <button className="MenuButton">Grid</button>
+        </Link>
       </div>
       <div style={{flex: '1'}}className="addgoals-content">
         <h1 className="addgoal-title">Goals</h1>
@@ -98,20 +112,29 @@ export default function AddGoals() {
           <button className="addgoal-clearbutton" onClick={() => clearList()}>Clear List</button>
         </div>
 
+        {/* 
         <ul className="addgoal-list">
           {
             list.map( (aGoal) => {
               return (
-              <li key={aGoal.getGoalID()} className="addgoal-listitem">
+                <li key={aGoal.getGoalID()} className="addgoal-listitem">
 
-                <button className={aGoal.isCompleted.toString()} id={"complete" + aGoal.getGoalID()} onClick={() => completeGoal(aGoal.getGoalID())}><IoIosCheckmark size={20}/></button>
-                <div>{aGoal.desc}</div>
+                  <button className={aGoal.isCompleted.toString()} id={"complete" + aGoal.getGoalID()} onClick={() => completeGoal(aGoal.getGoalID())}><IoIosCheckmark size={20}/></button>
+                  <div>{aGoal.desc}</div>
 
-              </li> 
+                </li>
               )
             })
           }
         </ul>
+        */}
+        {
+          list.map( (aGoal) => {
+            return (
+              <GoalComponent aGoal={aGoal} completeGoal={completeGoal}/>
+            )
+          })
+        }
 
       </div>
       <div style={{width: '15%'}}>

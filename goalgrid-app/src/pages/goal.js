@@ -25,6 +25,11 @@ export class Goal
         return this.goalID;
     }
     
+    // Returns the goal description
+    getGoalDesc() {
+        return this.desc;
+    }
+
     // Gives the goal a new description, no return.
     editGoal(newDesc)
     {

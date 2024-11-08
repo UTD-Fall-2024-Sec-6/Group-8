@@ -1,6 +1,3 @@
-import { IoMdSettings } from "react-icons/io";
-import Link from 'next/link';
-
 export default function Grid() {
   return (
     <div className="Grid">
