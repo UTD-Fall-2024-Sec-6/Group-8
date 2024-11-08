@@ -1,0 +1,18 @@
+import { render, screen } from "@testing-library/react"
+import { Goal } from '../pages/goal.js';
+
+describe(Goal, () => {
+  //Test 1 for Mark Complete (UC9)
+  it("Test #1 for Mark Complete: When goal is initially false, button click, output should be true", () => {
+    
+    //code here
+
+  })
+
+  //Test 2 for Mark Complete (UC9)
+  it("Test #2 for Mark Complete: When goal is initially true, button click, output should be false", () => {
+    
+    //code here
+
+  })
+})
