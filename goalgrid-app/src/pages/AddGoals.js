@@ -44,7 +44,17 @@ export default function AddGoals() {
   }, [complete])
 
   const addGoal = (desc) => {
-    let goal = new Goal(Math.random(), desc, false);
+    let ID = JSON.parse(localStorage.getItem("list"));
+    let length = ID.length;
+
+    console.log(length);
+    if (length > 4)
+    {
+      console.log("List full.");
+      return;
+    }
+
+    let goal = new Goal(length, desc, false);
 
     setList([...list, goal]);
     setDescription("");

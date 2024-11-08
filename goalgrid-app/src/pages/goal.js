@@ -11,14 +11,29 @@ export class Goal
                 //rowPosition, colPosition
             )  // Creates goal when new instance is created.
     {
+        if (goalID < 0 || goalID > 24)  // checks for invalid goal ID
+        {
+            this.goalID = -99;
+            this.desc = "ERROR";
+            this.isCompleted = false;
+            return;
+        }
+
         this.goalID = goalID;
-        if (desc == "")
+        if (desc == "") // Checks for empty string
         {
             this.desc = "Empty Goal";
         }
         else
         {
-            this.desc = desc;
+            if (desc.length > 25)   // checks for string length
+            {
+                this.desc = desc.substring(0, 25);
+            }
+            else
+            {
+                this.desc = desc;
+            }
         }
         //this.gridID = gridID;
         this.isCompleted = isCompleted;
