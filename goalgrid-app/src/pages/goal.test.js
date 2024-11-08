@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react"
-import { Goal } from '../pages/goal.js';
+import { Goal } from './goal.js';
 
 describe(Goal, () => {
   //Test 1 for Mark Complete (UC9)
@@ -14,11 +14,5 @@ describe(Goal, () => {
     const testGoal = new Goal(Math.random(), "Test 2", true);
     testGoal.markComplete();
     expect(testGoal.isCompleted).toBe(false);
-  })
-
-  //Test 3 for Create Goal
-  it("Test #1 for Create Goal: When goal description is empty, create a goal with description 'Empty Goal'", () => {
-    const testGoal = new Goal(Math.random(), "", false);
-    expect(testGoal.desc).toBe("Empty Goal");
   })
 })

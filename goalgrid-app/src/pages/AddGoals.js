@@ -75,7 +75,9 @@ export default function AddGoals() {
       height: '1920px',*/
       display: 'flex',
       flexDirection: 'row',
-      height: '100vh',
+      /*height: '100vh',*/
+      minHeight: '100vh',
+      height: 'auto',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       backgroundImage: `url("images/8.png")`,

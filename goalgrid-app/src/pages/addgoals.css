@@ -1,5 +1,6 @@
 .addgoals-content {
-  justify-content: center; /*places it center row, but stretches out items*/
+  /*
+  justify-content: center; */ /*places it center row, but stretches out items*/
   align-items: center; /* returns items to normal size */
   /*border: 1px red solid;*/
 
