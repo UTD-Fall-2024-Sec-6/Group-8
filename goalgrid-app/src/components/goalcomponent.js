@@ -7,6 +7,11 @@ export default function GoalComponent({ aGoal , completeGoal}) {
     aGoal.desc = "Empty Goal";
   }
 
+  if (aGoal.desc.length > 25) {
+    window.alert("Goal description must be less than 25 characters");
+    aGoal.desc = aGoal.desc.slice(0, 25);
+  }
+
   return (
     <>
       <div className="addgoal-listitem">
