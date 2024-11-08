@@ -41,6 +41,7 @@ export class Goal
             this.isCompleted = false;
         }
         console.log(this.desc + " is " + this.isCompleted);
+        //return this.isCompleted
     }
 }
 
