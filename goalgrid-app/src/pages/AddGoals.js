@@ -44,19 +44,8 @@ export default function AddGoals() {
     }
   }, [complete])
 
-  /*
   const addGoal = (desc) => {
-    if (desc == "") {
-      desc = "Empty Goal";
-    }
     let goal = new Goal(Math.random(), desc, false);
-    setList([...list, goal]);
-
-    setDescription("");
-  }
-  */
-  const addGoal = (desc) => {
-    const goal = createGoal(desc);
 
     setList([...list, goal]);
     setDescription("");
