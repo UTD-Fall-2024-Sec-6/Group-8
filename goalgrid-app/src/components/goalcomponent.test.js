@@ -5,7 +5,11 @@ import { Goal } from '../pages/goal.js';
 
 describe(GoalComponent, () => {
   //Test 1 for Add Goal (UC4):
-  
+  it("User passes normal description, length in the range of 1 and 25 characters (inclusive): output is same as user's input.", () => {
+    const { getByTestID } = render(<GoalComponent aGoal={new Goal(Math.random(), "This is a test", false)} completeGoal={null}/>)
+    const goalDescription = screen.getByTestId("description").textContent;
+    expect(goalDescription).toEqual("This is a test");
+  })
 
   //Test 2 for Add Goal (UC4): 
   it("User passes input longer than 25 characters, goal description output is only first 25 characters", () => {
