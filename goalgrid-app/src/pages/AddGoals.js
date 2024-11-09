@@ -17,7 +17,7 @@ export default function AddGoals() {
       if(localValue == null) return []; //Scenario where user clears goals before exiting
       else {
         localValue = JSON.parse(localValue);
-        localValue = localValue.map(aGoal => Object.assign(new Goal(), aGoal));
+        localValue = localValue.map(aGoal => new Goal(aGoal.goalID, aGoal.desc, aGoal.isCompleted));
       }
 
       return localValue;
