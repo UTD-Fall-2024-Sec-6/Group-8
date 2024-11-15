@@ -1,5 +1,5 @@
 import { IoIosCheckmark } from "react-icons/io";
-import styles from "../pages/addgoals.css";
+import styles from "../pages/addgoals/AddGoals.js";
 import { Goal } from '../pages/goal.js';
 
 export default function GoalComponent({ aGoal , completeGoal}) {

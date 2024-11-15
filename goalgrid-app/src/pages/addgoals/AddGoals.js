@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { Goal } from './goal.js';
+import { Goal } from '../goal.js';
 import styles from "./addgoals.css";
 import { IoIosCheckmark } from "react-icons/io";
-import GoalComponent from "../components/goalcomponent.js";
+import GoalComponent from "../../components/goalcomponent.js";
 //import GoalComponent from "../components/goalcomponent.js";
 import { Link } from "react-router-dom";
 

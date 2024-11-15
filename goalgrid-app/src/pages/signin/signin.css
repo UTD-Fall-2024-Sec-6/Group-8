@@ -1,0 +1,30 @@
+.center-formSignin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    width: 100vw;
+}
+
+.center-formSignin Form{
+    max-width: 600px;
+    max-height: 450px;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    border: 1px solid #808000;
+    background-color: #E6E6FA;
+    border-radius: 20px;
+    box-shadow: 0 2px 4 px rgba(0,0,0,0.1);
+    text-align: center;
+}
+.center-formSignin .icon{
+    border-radius: 13px;
+    margin-bottom: 20px;
+}
+
+.center-formSignin Form .form-control{
+    margin-bottom: 20px;
+    padding: 10px;
+}
