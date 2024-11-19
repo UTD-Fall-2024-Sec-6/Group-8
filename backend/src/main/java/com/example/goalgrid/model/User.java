@@ -1,6 +1,5 @@
 package com.example.goalgrid.model;
 
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Column;
@@ -14,27 +13,25 @@ import lombok.Data;
 @Table(name = "users")
 public class User {
 	@Id
-    private Long id;
+	private Long id;
 	@JsonProperty("name")
-    private String name;
+	private String name;
 	@JsonProperty("username")
 	@Column(nullable = false, unique = true)
-    private String username;
+	private String username;
 	@JsonProperty("password")
-    private String password;
-	
-	
-    public User() {
-        // Default constructor required by Hibernate
-    }
-    
+	private String password;
+
+	public User() {
+		// Default constructor required by Hibernate
+	}
+
 	public User(Long id, String name, String username, String password) {
 		this.id = id;
 		this.name = name;
 		this.username = username;
 		this.password = password;
 	}
-
 
 	public Long getId() {
 		return id;

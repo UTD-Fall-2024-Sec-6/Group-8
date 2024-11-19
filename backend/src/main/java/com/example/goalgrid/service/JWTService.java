@@ -19,7 +19,6 @@ import java.util.function.Function;
 @Service
 public class JWTService {
 
-
     private String secretkey = "";
 
     public JWTService() {
@@ -53,7 +52,6 @@ public class JWTService {
     }
 
     public String extractUserName(String token) {
-        // extract the username from jwt token
         return extractClaim(token, Claims::getSubject);
     }
 
@@ -68,7 +66,6 @@ public class JWTService {
                 .build()
                 .parseSignedClaims(token)
                 .getPayload();
-        System.out.println(claims);
         return claims;
     }
 
