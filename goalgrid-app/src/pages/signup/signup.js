@@ -5,7 +5,6 @@ import Form from 'react-bootstrap/Form';
 import { useNavigate } from "react-router-dom";
 
 const Signup = () =>{
-
     const[formSignup, setFormSignup] = useState({
         name: "",
         username: "",
@@ -63,7 +62,6 @@ const Signup = () =>{
                     setMsg("Username already exists")
                 else{
                     localStorage.setItem("authToken", data);
-                    localStorage.setItem("name", formSignup.username);
                     navigate("/dashboard");  // Redirect after successful user creation
                 }
             }catch (error) {

@@ -23,7 +23,6 @@ const Signin = () =>{
     const navigate = useNavigate()
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Form data being sent:', formSignin); // Check the data here
         try {
             const response = await fetch("http://localhost:8080/api/signin", {
                 method: "POST",
@@ -34,15 +33,14 @@ const Signin = () =>{
                 })
             });
                 const data = await response.text();
-                if(data.includes("null")){
-                    setMsg("Invalid")
+                if(data===''){
+                    setMsg("Incorrect username or password.")
                     setFormSignin({
                         ...formSignin,
                         password: ""
                     });
                 }else{
-                    localStorage.setItem("name", formSignin.username);
-                    localStorage.setItem("authToken", data);
+                    localStorage.setItem("authToken",data)
                     navigate("/dashboard");  // Redirect after successful user creation
                 }
         }catch (error) {
@@ -91,8 +89,10 @@ const Signin = () =>{
                             onChange={handleInputChange}
                         />
                     </Form.Group>
-                    <Button variant="primary" type="submit" className="w-100">Submit</Button>
-                    <div style={{color: 'red', marginTop:'10px'}}>{msg}</div>
+                    <div style={{color: 'red', marginBottom:'10px'}}>{msg}</div>
+                    
+                    <Button variant="primary" type="submit" className="w-100" style={{marginBottom:'10px'}}>Submit</Button> 
+                    
                     <div> 
                         <Link to="/signup">
                             <Button>Register Account</Button>
