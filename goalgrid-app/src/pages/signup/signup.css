@@ -1,30 +1,56 @@
-.center-formSignUp{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 80vh;
-    width: 100vw;
+html,
+body {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  width: 100%; /* Ensure the body spans the full width */
+  height: 100%; /* Ensure the body spans the full height */
+  overflow: hidden; /* Prevent scrolling if necessary */
+}
+.center-formSignUp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
 }
 
-.center-formSignUp Form{
-    max-width: 600px;
-    max-height: 550px;
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-    border: 1px solid #808000;
-    background-color: #E6E6FA;
-    border-radius: 20px;
-    box-shadow: 0 2px 4 px rgba(0,0,0,0.1);
-    text-align: center;
+.center-formSignUp Form {
+  max-width: 390px;
+  max-height: 600px;
+  width: 100%;
+  height: 100%;
+  padding: 25px;
+  border: 1px solid #808000;
+  background-color: #e6e6fa;
+  border-radius: 20px;
+  box-shadow: 0 2px 4 px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
-.center-formSignUp .icon{
-    border-radius: 13px;
-    margin-bottom: 20px;
+.center-formSignUp .icon {
+  border-radius: 13px;
+  margin-bottom: 20px;
 }
 
-.center-formSignUp Form .form-control{
-    margin-bottom: 20px;
-    padding: 10px;
+.center-formSignUp Form .form-control {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 15px;
+  width: 50%;
+}
+.w-100 {
+  background-color: #6941c6;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  border: 15px;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+.w-100:hover {
+  background-color: #7857c5;
+  color: white;
+  border-radius: 10px;
+  border: 15px;
+  box-shadow: 0 1px 2px 0 rgba(45, 39, 44, 0.24);
 }

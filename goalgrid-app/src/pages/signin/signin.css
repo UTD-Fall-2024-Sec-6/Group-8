@@ -1,30 +1,56 @@
-.center-formSignin{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 80vh;
-    width: 100vw;
+html, body {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    width: 100%; /* Ensure the body spans the full width */
+    height: 100%; /* Ensure the body spans the full height */
+    overflow: hidden; /* Prevent scrolling if necessary */
+  }
+  
+.center-formSignin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
 }
 
-.center-formSignin Form{
-    max-width: 600px;
-    max-height: 470px;
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-    border: 1px solid #808000;
-    background-color: #E6E6FA;
-    border-radius: 20px;
-    box-shadow: 0 2px 4 px rgba(0,0,0,0.1);
-    text-align: center;
+.center-formSignin Form {
+  max-width: 390px;
+  max-height: 400px;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  border: 1px solid #808000;
+  background-color: #e6e6fa;
+  border-radius: 20px;
+  box-shadow: 0 2px 4 px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
-.center-formSignin .icon{
-    border-radius: 13px;
-    margin-bottom: 20px;
+.center-formSignin .icon {
+  border-radius: 13px;
+  margin-bottom: 20px;
 }
 
-.center-formSignin Form .form-control{
-    margin-bottom: 20px;
-    padding: 10px;
+.center-formSignin Form .form-control {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 15px;
+  width: 50%;
+}
+.w-100a {
+  background-color: #6941c6;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  border: 15px;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+.w-100a:hover {
+  background-color: #7857c5; 
+  color: white;
+  border-radius: 10px;
+  border: 15px;
+  box-shadow: 0 1px 2px 0 rgba(45, 39, 44, 0.24);
 }
