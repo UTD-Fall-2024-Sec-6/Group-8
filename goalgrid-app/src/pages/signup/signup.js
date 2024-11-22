@@ -64,7 +64,7 @@ const Signup = () => {
         if (data.includes("null")) setMsg("Username already exists");
         else {
           localStorage.setItem("authToken", data);
-          navigate("/dashboad"); // Redirect after successful user creation
+          navigate("/dashboard"); // Redirect after successful user creation
         }
       } catch (error) {
         console.log("Error during fetch operation:", error);

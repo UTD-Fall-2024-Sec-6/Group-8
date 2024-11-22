@@ -26,26 +26,27 @@ public class WebConfig {
 
     @Autowired
     private UserDetailsService userDetailsService;
-
+    
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/api/**")
-                .allowedOrigins("http://localhost:3000")
-                .allowedMethods("GET", "POST", "PUT", "DELETE")
-                .allowCredentials(true)
-                .allowedHeaders("*");
+            .allowedOrigins("http://localhost:3000")
+            .allowedMethods("GET", "POST", "PUT", "DELETE")
+            .allowCredentials(true)
+            .allowedHeaders("*");
     }
-
+    
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         return http
-                .cors(Customizer.withDefaults())
-                .csrf(customizer -> customizer.disable()).authorizeHttpRequests(request -> request
+        		.cors(Customizer.withDefaults())
+        		.csrf(customizer -> customizer.disable()).
+                authorizeHttpRequests(request -> request
                         .requestMatchers("api/signin").permitAll()
                         .requestMatchers("api/signup").permitAll()
-                        .anyRequest().authenticated())
-                .httpBasic(Customizer.withDefaults())
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                        .anyRequest().authenticated()).
+                httpBasic(Customizer.withDefaults()).
+                sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
@@ -56,6 +57,7 @@ public class WebConfig {
         provider.setPasswordEncoder(new BCryptPasswordEncoder(12));
         provider.setUserDetailsService(userDetailsService);
 
+
         return provider;
     }
 
@@ -64,5 +66,6 @@ public class WebConfig {
         return config.getAuthenticationManager();
 
     }
+
 
 }

@@ -120,7 +120,6 @@ const Signin = () => {
               transition: "background-color 0.4s, color 0.4s",
               cursor: "pointer",
               width: "55%",
-              marginTop: "10px",
             }}
             variant="primary"
             type="submit"
