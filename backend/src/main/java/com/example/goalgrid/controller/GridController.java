@@ -13,10 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.goalgrid.model.Grid;
-import com.example.goalgrid.repository.GridRepository;
+import com.example.goalgrid.model.IdWrapper;
 import com.example.goalgrid.service.GridService;
 import com.example.goalgrid.service.JWTService;
-import com.example.goalgrid.service.UserService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -30,10 +29,6 @@ public class GridController {
 	private GridService gridService;
 	@Autowired
 	private JWTService jwtService;
-	@Autowired
-	private UserService userService;
-	@Autowired
-	private GridRepository gridRepository;
 	
 	@PostMapping("addGrid")
     public ResponseEntity<List<Grid>> createGrid(@RequestHeader("Authorization") String token, @RequestBody Grid grid) {
@@ -49,7 +44,15 @@ public class GridController {
 		token = token.substring(7);
     	String username = jwtService.extractUserName(token);
 		List<Grid> grids = gridService.getGrids(username);
-		System.out.println(grids);
+        return ResponseEntity.ok(grids);
+    }
+	
+	@PostMapping("deleteGrid")
+    public ResponseEntity<List<Grid>> deleteGrid(@RequestHeader("Authorization") String token, @RequestBody IdWrapper id) {
+		token = token.substring(7);
+    	String username = jwtService.extractUserName(token);
+		gridService.deleteGrid(username, id.getId());
+		List<Grid> grids = gridService.getGrids(username);
         return ResponseEntity.ok(grids);
     }
 }

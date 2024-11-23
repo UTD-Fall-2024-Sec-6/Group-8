@@ -1,7 +1,13 @@
-import SideMenu from "../components/grid/sidemenu";
 import Grid from "../components/grid/gridmenu";
+import { useState } from "react";
+import GoalList from "../components/grid/goallist";
+import SideMenu from "../components/grid/sidemenu";
 
 export default function GridPage() {
+  const [gridData, setGridData] = useState(null);
+  const handleGridData = (data) => {
+    setGridData(data);
+  };
   return (
     <>
       <div
@@ -11,11 +17,12 @@ export default function GridPage() {
           height: "100vh",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
-          backgroundImage: `url("images/7.png")`,
+          backgroundImage: 'url("images/bg3.png")',
         }}
       >
         <SideMenu />
-        <Grid />
+        <Grid onGenerateData={handleGridData} />
+        <GoalList data={gridData} />
       </div>
     </>
   );

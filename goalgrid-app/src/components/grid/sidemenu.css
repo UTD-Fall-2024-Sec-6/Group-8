@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Laila:wght@300;400;500;600;700&display=swap');
 
 .SideMenu {
-  display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   row-gap: 20px;
   place-items: center;
-  margin: 30px;
+  margin: 28px;
 }
 
 .GoalGridAppLayout {
@@ -18,16 +17,16 @@
 
 .GoalGrid-Title {
   font-family: Laila;
+  color: aliceblue;
+  font-size: 40px;
+  margin-top: 0px;
 }
 
-.Grid {
-  background-color: orange;
-}
 
 .MenuButton, .SettingsButton {
-  background-color: white;
+  background-color: #F0EDFF;
   border-style: solid;
-  border-color: orange;
+  border-color: #7F669D;
   border-width: 4px;
   /*padding: 10px;*/
   width: 200px;
@@ -37,6 +36,7 @@
   transition-property: background-color;
   font-family: laila;
   font-size: 20px;
+  color: #5C3D27;
 }
 
 .SettingsButton {
@@ -44,7 +44,8 @@
 }
 
 .MenuButton:hover, .SettingsButton:hover {
-  background-color: rgb(226, 225, 225);
+  color: white;
+  background-color: #785d96;
   cursor: pointer;
 }
 

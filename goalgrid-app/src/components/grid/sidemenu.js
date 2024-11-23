@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { BsPersonFill } from "react-icons/bs";
-import { Link, useNavigate } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
+import "./sidemenu.css";
 export default function SideMenu() {
   const [name, setName] = useState("");
 
@@ -35,26 +35,24 @@ export default function SideMenu() {
   };
   return (
     <div className="SideMenu">
-      <h1 className="GoalGrid-Title">GoalGrid</h1>
-      <div>Hello {name}</div>
-      <div>
-        <Link to="/add">
-          <button className="MenuButton">Add Goals</button>
-        </Link>
-      </div>
-      <div>
-        <button className="MenuButton">
-          <Link to="/grid" />
-          Generate New Grid
-        </button>
+      <h1 style={{ color: "#5C3D27" }} className="GoalGrid-Title">
+        GoalGrid
+      </h1>
+
+      <div style={{ fontSize: "30px", marginTop: "150px", color: "#5C3D27" }}>
+        Hello {name}
       </div>
       <div>
         {" "}
-        <button className="SettingsButton">
+        <button style={{ marginTop: "200px" }} className="SettingsButton">
           <BsPersonFill size={42} />{" "}
         </button>{" "}
       </div>
-      <button onClick={signoutHandle} className="MenuButton">
+      <button
+        style={{ marginTop: "30px" }}
+        onClick={signoutHandle}
+        className="MenuButton"
+      >
         Sign out
       </button>
     </div>

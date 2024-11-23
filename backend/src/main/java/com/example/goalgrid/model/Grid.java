@@ -1,13 +1,18 @@
 package com.example.goalgrid.model;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -30,6 +35,10 @@ public class Grid {
     @JoinColumn(name = "user_id", nullable = false)
     @JsonBackReference
     private User user;
+    
+    @OneToMany(mappedBy = "grid", cascade = CascadeType.ALL, orphanRemoval = true)
+	@JsonIgnore
+	private List<Goal> goals;
     
 	public Grid() {
 		// Default constructor required by Hibernate
@@ -74,5 +83,13 @@ public class Grid {
 	public void setUser(User user) {
 	        this.user = user;
 	}
+    
+	public List<Goal> getGoals() {
+        return goals;
+    }
+
+    public void setGoals(List<Goal> goals) {
+        this.goals = goals;
+    }
     
 }

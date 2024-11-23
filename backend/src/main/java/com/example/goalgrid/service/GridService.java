@@ -8,8 +8,11 @@ import org.springframework.stereotype.Service;
 
 import com.example.goalgrid.model.Grid;
 import com.example.goalgrid.model.User;
+import com.example.goalgrid.repository.GoalRepository;
 import com.example.goalgrid.repository.GridRepository;
 import com.example.goalgrid.repository.UserRepository;
+
+import jakarta.transaction.Transactional;
 
 @Service
 public class GridService {
@@ -19,6 +22,9 @@ public class GridService {
 
     @Autowired
     private GridRepository gridRepository;
+    
+    @Autowired
+    private GoalRepository goalRepository;
     
 	public Grid postGrid(String username, Grid grid) {
     	Random rd = new Random();
@@ -33,4 +39,11 @@ public class GridService {
 		return gridRepository.findByUserId(user.getId());
 	}
 
+	@Transactional
+	public List<Grid> deleteGrid(String username, Long id) {
+		goalRepository.deleteByGridId(id);
+		gridRepository.deleteById(id);
+		User user = userRepository.findFirstByUsername(username);
+		return gridRepository.findByUserId(user.getId());
+	}
 }
