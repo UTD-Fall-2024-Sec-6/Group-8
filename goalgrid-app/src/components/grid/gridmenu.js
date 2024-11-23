@@ -13,6 +13,10 @@ export default function Grid({ onGenerateData }) {
   };
 
   const handleSubmit = async (e) => {
+    if (input.trim() === "") {
+      setInput("");
+      return;
+    }
     e.preventDefault();
     try {
       const response = await fetch("http://localhost:8080/grid/addGrid", {
@@ -30,6 +34,7 @@ export default function Grid({ onGenerateData }) {
       }
       const data = await response.json();
       setGrids(data);
+      setInput("");
       handleSelectGrid(data[data.length - 1].id);
     } catch (error) {
       console.error("Error during fetch operation:", error);
@@ -145,7 +150,7 @@ export default function Grid({ onGenerateData }) {
             >
               {grid.gridName}
               <button
-                className="delete-button"
+                className="trashcan-button"
                 onClick={(e) => {
                   e.stopPropagation();
                   const confirmDelete = window.confirm(
@@ -163,7 +168,15 @@ export default function Grid({ onGenerateData }) {
                   transform: "translateY(-50%)",
                 }}
               >
-                ✕
+                <div className="trashcan-icon">
+                  <div className="lid"></div>
+                  <div className="lidcap"></div>
+                  <div className="bin">
+                    <div className="cut cut1"></div>
+                    <div className="cut cut2"></div>
+                    <div className="cut cut3"></div>
+                  </div>
+                </div>
               </button>
             </div>
           ))

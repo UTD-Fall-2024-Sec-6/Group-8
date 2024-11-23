@@ -1,7 +1,7 @@
-import Grid from "../components/grid/gridmenu";
 import { useState } from "react";
-import GoalList from "../components/grid/goallist";
 import SideMenu from "../components/grid/sidemenu";
+import Grid from "../components/grid/gridmenu";
+import GoalList from "../components/grid/goallist";
 
 export default function GridPage() {
   const [gridData, setGridData] = useState(null);
@@ -22,7 +22,7 @@ export default function GridPage() {
       >
         <SideMenu />
         <Grid onGenerateData={handleGridData} />
-        <GoalList data={gridData} />
+        {gridData && <GoalList gridId={gridData} />}
       </div>
     </>
   );

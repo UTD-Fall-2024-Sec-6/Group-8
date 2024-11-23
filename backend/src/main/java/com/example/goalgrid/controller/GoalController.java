@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.goalgrid.model.Goal;
 import com.example.goalgrid.model.Grid;
+import com.example.goalgrid.model.IdWrapper;
 import com.example.goalgrid.repository.GridRepository;
 import com.example.goalgrid.service.GoalService;
 
@@ -45,9 +46,16 @@ public class GoalController {
 	}
 	
 	@GetMapping("getGoals/{gridId}")
-    public ResponseEntity<List<Goal>> getGridsForUser(@RequestHeader("Authorization") String token, @PathVariable Long gridId) {
+    public ResponseEntity<List<Goal>> getGoalsFromGridID(@PathVariable Long gridId) {
 		List<Goal> goals = goalService.getGoals(gridId);
         return ResponseEntity.ok(goals);
+    }
+	
+	@PostMapping("deleteGoal/{gridId}")
+    public ResponseEntity<List<Goal>> deleteGoal(@PathVariable Long gridId, @RequestBody IdWrapper id) {
+		goalService.deleteGoal(gridId, id.getId());
+		List<Goal> goals = goalService.getGoals(gridId);
+		return ResponseEntity.ok(goals);
     }
 }
 

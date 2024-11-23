@@ -25,16 +25,15 @@
   margin-bottom: 20px;
   width: 100%;
   border-radius: 20px;
-  color: #5C3D27;
-box-shadow: 0px 0px 2px rgb(78, 51, 86);
-
+  color: #5c3d27;
+  box-shadow: 0px 0px 2px rgb(78, 51, 86);
 }
 
 .addgrid-input {
   border-width: 10;
   border-radius: 20px;
-  border-color: #7F669D;
-  color: #5C3D27;
+  border-color: #7f669d;
+  color: #5c3d27;
   padding: 10px;
   font-size: 1rem;
   border: none;
@@ -45,12 +44,12 @@ box-shadow: 0px 0px 2px rgb(78, 51, 86);
 .addgrid-addbutton {
   border-width: 10;
   border-radius: 20px;
-  border-color: #E3AADD;
+  border-color: #e3aadd;
   padding: 10px 20px;
   font-size: 1rem;
   font-weight: bold;
-  color: #5C3D27;
-  background-color: #F4E7F8;
+  color: #5c3d27;
+  background-color: #f4e7f8;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.1s ease;
 }
@@ -74,7 +73,7 @@ box-shadow: 0px 0px 2px rgb(78, 51, 86);
 
 /* Individual Grid Item */
 .grid-item {
-  color: #5C3D27;
+  color: #5c3d27;
   padding: 10px 15px;
   background-color: white;
   border: 1px solid #ddd;
@@ -108,18 +107,78 @@ box-shadow: 0px 0px 2px rgb(78, 51, 86);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
   pointer-events: none; /* Ensure it's non-interactive */
 }
+.trashcan-button {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.trashcan-icon {
+  position: relative;
+  width: 23px;
+  height:26px;
+  transition: box-shadow 0.2s ease;
+}
 
 
-  .delete-button {
-    background-color: red;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  
-  .delete-button:hover {
-    background-color: darkred;
-  }
-  
+.lid {
+  position: fixed;
+  bottom: 21px;
+  left: 1px;
+  width: 18px;
+  height: 4px;
+  background: #424140;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  transition: transform 0.2s ease, margin 0.2s ease;
+}
+
+.lidcap {
+  position:fixed;
+  bottom: 25px;
+  left: 6px;
+  width: 8px;
+  height: 2px;
+  background: #424140;
+  border-radius: 15px;
+
+}
+
+.trashcan-icon:hover .lid {
+  transform: rotateY(20deg);
+  margin-bottom: 2px;
+}
+
+.bin {
+  position: absolute;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  background: #424140;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.cut {
+  position: absolute;
+  width: 1px;
+  background: white;
+  height: 13px;
+  bottom: 3px;
+}
+
+.cut1 {
+  right: 6px;
+}
+
+.cut2 {
+ right: 10px;
+}
+.cut3 {
+  right: 14px;
+}
+

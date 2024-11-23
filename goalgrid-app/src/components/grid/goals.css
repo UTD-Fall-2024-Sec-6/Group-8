@@ -1,0 +1,58 @@
+.add-goal-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .size-buttons button {
+    margin-right: 10px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .size-buttons button.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  
+  .size-buttons button.selected {
+    background-color: orange;
+    color: white;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .goal-item,
+  li {
+    padding: 5px 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+  }
+  
+  li.highlighted {
+    background-color: yellow;
+  }
+  
+  .grid-3x3,
+  .grid-4x4,
+  .grid-5x5 {
+    display: grid;
+    grid-gap: 10px;
+  }
+  
+  .grid-3x3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .grid-4x4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .grid-5x5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  
