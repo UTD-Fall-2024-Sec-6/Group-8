@@ -19,22 +19,16 @@ const PrivateRoute = ({ children }) => {
       },
     })
       .then((response) => {
-        setIsAuthenticated(response.ok); // Set true if response is OK
+        setIsAuthenticated(response.ok);
       })
-      .catch(() => setIsAuthenticated(false)); // Handle errors by marking as not authenticated
+      .catch(() => setIsAuthenticated(false));
   }, [authToken]);
-
   if (isAuthenticated === null) {
-    // While waiting for the fetch to complete, you can return a loader or nothing
     return <div>Loading...</div>;
   }
-
   if (!isAuthenticated) {
-    // Redirect to sign-in if not authenticated
     return <Navigate to="/signin" />;
   }
-
-  // Render children if authenticated
   return children;
 };
 

@@ -91,14 +91,7 @@ export default function Grid({ onGenerateData }) {
     fetchGrids();
   }, [token]);
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        backgroundColor: "#ba91ec",
-      }}
-      className="Grid"
-    >
+    <div className="Grid">
       <div
         style={{
           display: "flex",
@@ -107,20 +100,10 @@ export default function Grid({ onGenerateData }) {
           padding: "20px",
           width: "auto",
           borderRadius: "40px",
+          fontWeight: "bold",
         }}
       >
-        <h1
-          style={{
-            position: "absolute", // Position the welcome message absolutely
-            left: "50%",
-            transform: "translateX(-50%)", // Center it horizontally
-            color: "#5C3D27",
-            fontSize: "25px",
-          }}
-          className="addgrid-title"
-        >
-          Grid's List
-        </h1>
+        <h1 className="addgrid-title">Grid's List</h1>
       </div>
 
       {/* Input and Button */}
@@ -162,10 +145,6 @@ export default function Grid({ onGenerateData }) {
                 }}
                 style={{
                   display: selectedGrid === grid.id ? "inline" : "none",
-                  position: "absolute",
-                  right: "10px",
-                  top: "50%",
-                  transform: "translateY(-50%)",
                 }}
               >
                 <div className="trashcan-icon">
@@ -174,7 +153,6 @@ export default function Grid({ onGenerateData }) {
                   <div className="bin">
                     <div className="cut cut1"></div>
                     <div className="cut cut2"></div>
-                    <div className="cut cut3"></div>
                   </div>
                 </div>
               </button>

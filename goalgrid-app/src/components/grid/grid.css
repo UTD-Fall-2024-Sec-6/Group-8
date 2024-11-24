@@ -1,20 +1,24 @@
-/* General Styles for the Grid Component */
 .Grid {
-  font-family: Arial, sans-serif;
+  font-family: "comic sans ms";
   padding: 20px;
-  max-width: 600px;
+  max-width: 100vh;
+  height: 100vh;
   margin: 0 auto;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  position: relative; /* Needed for centering the label */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #6a94c4;
 }
 
-/* Title Styling */
 .addgrid-title {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 30px;
   color: white;
   margin-bottom: 20px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /* Input and Button Row */
@@ -26,7 +30,6 @@
   width: 100%;
   border-radius: 20px;
   color: #5c3d27;
-  box-shadow: 0px 0px 2px rgb(78, 51, 86);
 }
 
 .addgrid-input {
@@ -49,29 +52,47 @@
   font-size: 1rem;
   font-weight: bold;
   color: #5c3d27;
-  background-color: #f4e7f8;
+  background-color: #f8f7d9;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
 .addgrid-addbutton:hover {
-  color: white;
-  background-color: #dfb3b0;
+  color: #f8f7d9;
+  background-color: #78ce99;
 }
 
 .addgrid-addbutton:active {
   transform: scale(0.95);
 }
 
-/* Grid List Container */
 .grid-list {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 100%; /* Ensure consistent width */
+  width: 100%;
+  max-height: 80%;
+  overflow-y: auto;
+  border-radius: 5px;
+  padding-right: 15px;
+}
+.grid-list::-webkit-scrollbar {
+  width: 6px;
 }
 
-/* Individual Grid Item */
+.grid-list::-webkit-scrollbar-track {
+  border-radius: 5px;
+}
+
+.grid-list::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #e6f0f8, #a9c3ee);
+  border-radius: 5px;
+}
+
+.grid-list::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #d1d0d6, #467199); 
+}
+
 .grid-item {
   color: #5c3d27;
   padding: 10px 15px;
@@ -94,91 +115,78 @@
   box-shadow: 0 4px 8px rgba(255, 99, 71, 0.3);
 }
 
-/* Placeholder for Empty Grid */
 .empty-grid-label {
-  position: absolute; /* Position the label relative to the container */
+  position: absolute;
   top: 50%;
   right: -12%;
-  transform: translate(-50%, -50%); /* Center it vertically and horizontally */
+  transform: translate(-50%, -50%);
   text-align: center;
   color: #f4e7f8;
-  font-size: 1.5rem; /* Bigger text for emphasis */
-  filter: blur(0.8px); /* Reduced blur */
+  font-size: 1.5rem;
+  filter: blur(0.8px);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-  pointer-events: none; /* Ensure it's non-interactive */
+  pointer-events: none;
 }
 .trashcan-button {
-  position: relative;
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
 }
-
 .trashcan-icon {
   position: relative;
-  width: 23px;
-  height:26px;
+  width: 20px;
+  height: 25px;
   transition: box-shadow 0.2s ease;
 }
-
-
 .lid {
   position: fixed;
-  bottom: 21px;
-  left: 1px;
-  width: 18px;
+  bottom: 18px;
+  width: 15px;
   height: 4px;
-  background: #424140;
+  background: #665d9c;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom: 8px;
   transition: transform 0.2s ease, margin 0.2s ease;
 }
-
 .lidcap {
-  position:fixed;
-  bottom: 25px;
-  left: 6px;
+  position: fixed;
+  bottom: 21px;
+  left: 3px;
   width: 8px;
   height: 2px;
-  background: #424140;
+  background: #665d9c;
   border-radius: 15px;
-
 }
-
 .trashcan-icon:hover .lid {
-  transform: rotateY(20deg);
-  margin-bottom: 2px;
+  transform: rotateY(15deg);
+  margin-bottom: 1px;
 }
-
 .bin {
   position: absolute;
   bottom: 0;
-  width: 20px;
-  height: 20px;
-  background: #424140;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  width: 15px;
+  height: 17px;
+  background: #665d9c;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
 }
-
 .cut {
-  position: absolute;
-  width: 1px;
+  position: fixed;
+  width: 2px;
   background: white;
-  height: 13px;
+  height: 11px;
   bottom: 3px;
 }
-
 .cut1 {
-  right: 6px;
-}
-
-.cut2 {
- right: 10px;
-}
-.cut3 {
   right: 14px;
 }
-
+.cut2 {
+  right: 9px;
+}

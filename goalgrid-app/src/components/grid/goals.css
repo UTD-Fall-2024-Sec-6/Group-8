@@ -1,58 +1,190 @@
+.goallist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.grid-name {
+  font-family: "Comic Sans MS";
+  font-size: 30px;
+  color: #1e6797;
+}
+
 .add-goal-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .size-buttons button {
-    margin-right: 10px;
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  .size-buttons button.disabled {
-    cursor: not-allowed;
-    opacity: 0.5;
-  }
-  
-  .size-buttons button.selected {
-    background-color: orange;
-    color: white;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .goal-item,
-  li {
-    padding: 5px 10px;
-    margin: 5px 0;
-    border: 1px solid #ddd;
-  }
-  
-  li.highlighted {
-    background-color: yellow;
-  }
-  
-  .grid-3x3,
-  .grid-4x4,
-  .grid-5x5 {
-    display: grid;
-    grid-gap: 10px;
-  }
-  
-  .grid-3x3 {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  
-  .grid-4x4 {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  
-  .grid-5x5 {
-    grid-template-columns: repeat(5, 1fr);
-  }
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.add-goal-input {
+  border: 2px solid #7f669d;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 1rem;
+  margin-right: 10px;
+}
+
+.add-goal-button {
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #1e8997;
+  cursor: pointer;
+}
+
+.add-goal-button:hover {
+  background-color: #145f6d;
+}
+
+.size-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.size-buttons button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #1e8997;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.size-buttons button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.size-buttons button.selected {
+  background-color: #145f6d;
+}
+
+li {
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ddd;
+  background-color: #206b9c;
+  border-radius: 10px;
+  color: #f4e7f8;
+  text-align: center;
+  font-size: 20px;
+}
+
+li.highlighted {
+  border-color: #cf6807;
+  border-width: 3px;
+}
+
+.grid-3x3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4x4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-5x5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+.grid-3x3,
+.grid-4x4,
+.grid-5x5 {
+  display: grid;
+  gap: 5px; /* Add some spacing between grid items */
+  text-align: center;
+}
+.goal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.goal-item {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #206b9c;
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+  overflow: hidden;
+  box-sizing: border-box;
+  word-break: break-word;
+}
+
+.generate-button {
+  border: none;
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #d14036;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.generate-button:hover {
+  background-color: #a12e28;
+}
+.delete-button {
+  border-radius: 50%;
+  background-color: #ffffff;
+  width: 25px;
+  height: 25px;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  font-size: 1rem;
+  border: none;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(200, 200, 200);
+}
+.delete-button:hover {
+  background-color: #000000;
+  color: white;
+  transform: scale(13);
+}
+.vertical-scroll-menu {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  max-height: 50%;
+  overflow-y: auto;
+  border-radius: 5px;
+  padding-right: 15px;
+}
+.vertical-scroll-menu::-webkit-scrollbar {
+  width: 10px;
+}
+
+.vertical-scroll-menu::-webkit-scrollbar-track {
+  border-radius: 5px;
+}
+
+.vertical-scroll-menu::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #6da4e4, #2575fc);
+  border-radius: 5px;
+}
+
+.vertical-scroll-menu::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #7a51a3, #0055a6); 
+}

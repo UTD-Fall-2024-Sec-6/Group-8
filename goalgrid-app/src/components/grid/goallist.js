@@ -138,93 +138,107 @@ export default function GoalList({ gridId }) {
     }
   };
   return (
-    <div>
-      <h2>{gridName}</h2>
-
-      {isGenerated ? (
-        // If grid is generated, show the list in grid layout
-        <div className={`grid-${selectedSize}x${selectedSize}`}>
-          {goals.map((goal) => (
-            <div key={goal.id} className="goal-item">
-              {goal.goalName}
+    <div className="goallist">
+      <h2 className="grid-name">{gridName}</h2>
+      <div>
+        {isGenerated ? (
+          // If grid is generated, show the list in grid layout
+          <div className="goal-container">
+            <div className={`grid-${selectedSize}x${selectedSize}`}>
+              {goals.map((goal) => (
+                <div key={goal.id} className="goal-item">
+                  {goal.goalName}
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      ) : (
-        // If grid is not generated
-        <>
-          {/* Input and add goal */}
-          <div className="add-goal-row">
-            <input
-              type="text"
-              value={newGoal}
-              onChange={(e) => setNewGoal(e.target.value)}
-              placeholder="Enter a new goal"
-            />
-            <button onClick={handleAddGoal}>Add Goal</button>
           </div>
-
-          {/* List of goals */}
-          {goals.map((goal, index) => (
-            <li
-              key={goal.id}
-              onMouseEnter={() => setHoveredGoalId(goal.id)}
-              onMouseLeave={() => setHoveredGoalId(null)}
-              className={highlightedGoals.includes(goal) ? "highlighted" : ""}
-              style={{
-                position: "relative",
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
-              {goal.goalName}
-              <button
-                className="delete-button"
-                onClick={handleDeleteGoal}
-                style={{
-                  display: hoveredGoalId === goal.id ? "inline" : "none", // Show button on hover
-                  position: "absolute",
-                  right: "10px",
-                  top: "50%",
-                  transform: "translateY(-50%)",
-                }}
-              >
-                ✕
+        ) : (
+          // If grid is not generated
+          <>
+            {/* Input and add goal */}
+            <div className="add-goal-row">
+              <input
+                className="add-goal-input"
+                type="text"
+                value={newGoal}
+                onChange={(e) => setNewGoal(e.target.value)}
+                placeholder="Enter a new goal"
+              />
+              <button className="add-goal-button" onClick={handleAddGoal}>
+                Add Goal
               </button>
-            </li>
-          ))}
+            </div>
 
-          {/* Size selection buttons */}
-          <div className="size-buttons">
-            <button
-              disabled={goals.length < 9}
-              onClick={() => handleSizeClick(3)}
-              className={selectedSize === 3 ? "selected" : ""}
-            >
-              3x3
-            </button>
-            <button
-              disabled={goals.length < 16}
-              onClick={() => handleSizeClick(4)}
-              className={selectedSize === 4 ? "selected" : ""}
-            >
-              4x4
-            </button>
-            <button
-              disabled={goals.length < 25}
-              onClick={() => handleSizeClick(5)}
-              className={selectedSize === 5 ? "selected" : ""}
-            >
-              5x5
-            </button>
-          </div>
+            {/* List of goals */}
+            <div className="vertical-scroll-menu">
+              {" "}
+              {goals.map((goal, index) => (
+                <li
+                  key={goal.id}
+                  onMouseEnter={() => setHoveredGoalId(goal.id)}
+                  onMouseLeave={() => setHoveredGoalId(null)}
+                  className={
+                    highlightedGoals.includes(goal) ? "highlighted" : ""
+                  }
+                  style={{
+                    position: "relative",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  {goal.goalName}
+                  <button
+                    className="delete-button"
+                    onClick={handleDeleteGoal}
+                    style={{
+                      display: hoveredGoalId === goal.id ? "inline" : "none", // Show button on hover
+                      position: "absolute",
+                      right: "7px",
+                      top: "50%",
+                      transform: "translateY(-50%)",
+                    }}
+                  >
+                    ✕
+                  </button>
+                </li>
+              ))}
+            </div>
+            {/* Size selection buttons */}
+            <div className="size-buttons">
+              <button
+                disabled={goals.length < 9}
+                onClick={() => handleSizeClick(3)}
+                className={selectedSize === 3 ? "selected" : ""}
+              >
+                3x3
+              </button>
+              <button
+                disabled={goals.length < 16}
+                onClick={() => handleSizeClick(4)}
+                className={selectedSize === 4 ? "selected" : ""}
+              >
+                4x4
+              </button>
+              <button
+                disabled={goals.length < 25}
+                onClick={() => handleSizeClick(5)}
+                className={selectedSize === 5 ? "selected" : ""}
+              >
+                5x5
+              </button>
+            </div>
 
-          {/* Submit button */}
-          <button onClick={handleSubmitSize} disabled={!selectedSize}>
-            Generate
-          </button>
-        </>
-      )}
+            {/* Submit button */}
+            <button
+              className="generate-button"
+              onClick={handleSubmitSize}
+              disabled={!selectedSize}
+            >
+              Generate
+            </button>
+          </>
+        )}
+      </div>
     </div>
   );
 }
