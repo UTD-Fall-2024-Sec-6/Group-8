@@ -125,6 +125,20 @@ li.highlighted {
   overflow: hidden;
   box-sizing: border-box;
   word-break: break-word;
+  position: relative;
+}
+
+.goal-item.goal-done {
+  background-color: #d3ffd3;
+  pointer-events: none;
+  color: gray; 
+}
+
+.markDone-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: none;
 }
 
 .generate-button {

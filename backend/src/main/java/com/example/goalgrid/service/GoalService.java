@@ -44,4 +44,10 @@ public class GoalService {
 		goalRepository.deleteById(goalId);
 		return goalRepository.findByGridId(gridId);
 	}
+
+	public void markDone(Long id) {
+		Goal goal = goalRepository.findById(id).get();
+		goal.setMark(true);
+		goalRepository.save(goal);
+	}
 }

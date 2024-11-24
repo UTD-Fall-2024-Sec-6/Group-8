@@ -73,7 +73,7 @@ public class Goal {
 		this.column = column;
 	}
 	
-	public boolean markComplete() {
+	public boolean isMarkComplete() {
 		return markComplete;
 	}
 

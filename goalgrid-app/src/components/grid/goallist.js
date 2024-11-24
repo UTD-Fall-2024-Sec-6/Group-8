@@ -137,6 +137,31 @@ export default function GoalList({ gridId }) {
       console.error("Error during fetch operation:", error);
     }
   };
+  const MarkDoneGoal = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:8080/goal/markDone/${gridId}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            id: hoveredGoalId,
+          }),
+        }
+      );
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      setGoals(data);
+      setHoveredGoalId(null);
+    } catch (error) {
+      console.error("Error during fetch operation:", error);
+    }
+  };
   return (
     <div className="goallist">
       <h2 className="grid-name">{gridName}</h2>
@@ -146,8 +171,27 @@ export default function GoalList({ gridId }) {
           <div className="goal-container">
             <div className={`grid-${selectedSize}x${selectedSize}`}>
               {goals.map((goal) => (
-                <div key={goal.id} className="goal-item">
+                <div
+                  key={goal.id}
+                  className={`goal-item ${
+                    goal.markComplete ? "goal-done" : ""
+                  }`}
+                  onMouseEnter={() =>
+                    !goal.markComplete && setHoveredGoalId(goal.id)
+                  }
+                  onMouseLeave={() => setHoveredGoalId(null)}
+                >
+                  {console.log(goal)}
                   {goal.goalName}
+                  <button
+                    className="markDone-button"
+                    onClick={MarkDoneGoal}
+                    style={{
+                      display: hoveredGoalId === goal.id ? "inline" : "none",
+                    }}
+                  >
+                    ✕
+                  </button>
                 </div>
               ))}
             </div>
@@ -171,7 +215,6 @@ export default function GoalList({ gridId }) {
 
             {/* List of goals */}
             <div className="vertical-scroll-menu">
-              {" "}
               {goals.map((goal, index) => (
                 <li
                   key={goal.id}

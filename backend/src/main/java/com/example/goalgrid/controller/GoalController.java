@@ -57,5 +57,12 @@ public class GoalController {
 		List<Goal> goals = goalService.getGoals(gridId);
 		return ResponseEntity.ok(goals);
     }
+	
+	@PostMapping("markDone/{gridId}")
+    public ResponseEntity<List<Goal>> markGoalDone(@PathVariable Long gridId, @RequestBody IdWrapper id) {
+		goalService.markDone(id.getId());
+		List<Goal> goals = goalService.getGoals(gridId);
+		return ResponseEntity.ok(goals);
+    }
 }
 
