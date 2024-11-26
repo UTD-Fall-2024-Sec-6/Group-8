@@ -209,6 +209,11 @@ export default function GoalList({ gridId }) {
                 type="text"
                 value={newGoal}
                 onChange={(e) => setNewGoal(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    handleAddGoal();
+                  }
+                }}
                 placeholder="Enter a new goal"
               />
               <button className="add-goal-button" onClick={handleAddGoal}>

@@ -17,7 +17,6 @@ export default function Grid({ onGenerateData }) {
       setInput("");
       return;
     }
-    e.preventDefault();
     try {
       const response = await fetch("http://localhost:8080/grid/addGrid", {
         method: "POST",
@@ -112,6 +111,11 @@ export default function Grid({ onGenerateData }) {
           className="addgrid-input"
           placeholder="Enter a new grid name"
           value={input}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              handleSubmit();
+            }
+          }}
           onChange={handleInputChange}
         />
         <button className="addgrid-addbutton" onClick={handleSubmit}>
