@@ -4,6 +4,7 @@ html, body {
     width: 100%; /* Ensure the body spans the full width */
     height: 100%; /* Ensure the body spans the full height */
     overflow: hidden; /* Prevent scrolling if necessary */
+    overflow: "auto"
   }
   
 .center-formSignin {

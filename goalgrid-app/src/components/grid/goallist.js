@@ -190,7 +190,10 @@ export default function GoalList({ gridId }) {
                       display: hoveredGoalId === goal.id ? "inline" : "none",
                     }}
                   >
-                    ✕
+                    <div
+                      style={{ backgroundColor: "none" }}
+                      className="check"
+                    ></div>
                   </button>
                 </div>
               ))}

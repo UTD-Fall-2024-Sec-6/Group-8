@@ -108,6 +108,7 @@ li.highlighted {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  transform: translateY(-50px)
 }
 .goal-item {
   width: 150px;
@@ -121,7 +122,7 @@ li.highlighted {
   background-color: #206b9c;
   border-radius: 10px;
   color: white;
-  font-size: 20px;
+  font-size: 30px;
   overflow: hidden;
   box-sizing: border-box;
   word-break: break-word;
@@ -129,16 +130,37 @@ li.highlighted {
 }
 
 .goal-item.goal-done {
-  background-color: #d3ffd3;
+  color: #003366;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(103, 167, 210, 0.5),
+    rgba(103, 167, 210, 0.5) 10px,
+    rgba(255, 255, 255, 0.5) 10px,
+    rgba(255, 255, 255, 0.5) 20px 
+  );
   pointer-events: none;
-  color: gray; 
 }
-
 .markDone-button {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 2px;
+  right: 1px;
   display: none;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  transform: rotate(45deg);
+}
+.markDone-button :hover {
+  transform: scale(1.2);
+}
+.check {
+  height: 13px;
+  width: 6px;
+  border-bottom: 3px solid #77f577;
+  border-right: 3px solid #77f577;
+  margin: 5px;
+  box-shadow: none;
 }
 
 .generate-button {
@@ -159,10 +181,9 @@ li.highlighted {
 }
 .delete-button {
   border-radius: 50%;
-  background-color: #ffffff;
   width: 25px;
   height: 25px;
-  color: rgb(0, 0, 0);
+  color: white;
   cursor: pointer;
   font-size: 1rem;
   border: none;
@@ -170,18 +191,19 @@ li.highlighted {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid rgb(200, 200, 200);
+  background-color: #206b9c;
+  font-weight: bold;
 }
 .delete-button:hover {
-  background-color: #000000;
-  color: white;
+  border-radius: 50%;
+  background-color: #4188b8;
   transform: scale(13);
 }
 .vertical-scroll-menu {
   display: flex;
   flex-direction: column;
   width: 450px;
-  max-height: 50%;
+  max-height: 600px;
   overflow-y: auto;
   border-radius: 5px;
   padding-right: 15px;
@@ -200,5 +222,6 @@ li.highlighted {
 }
 
 .vertical-scroll-menu::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #7a51a3, #0055a6); 
+  background: linear-gradient(45deg, #7a51a3, #0055a6);
 }
+
