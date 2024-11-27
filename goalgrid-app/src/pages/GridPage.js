@@ -18,6 +18,7 @@ export default function GridPage() {
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundImage: 'url("images/bg3.png")',
+          overflowX: "auto",
         }}
       >
         <SideMenu />
