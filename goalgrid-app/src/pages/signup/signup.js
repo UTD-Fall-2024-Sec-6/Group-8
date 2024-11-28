@@ -81,7 +81,9 @@ const Signup = () => {
         justifyContent: "center", // Centers content vertically
         minHeight: "100vh", // Ensures the div fills the screen height
         width: "100vw",
-        backgroundImage: `url("images/purple.webp")`,
+        // FIX ME - ADD NEW BACKGROUND
+        // backgroundImage: `url("images/purple.webp")`,
+        backgroundColor: "black",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center center",
@@ -92,7 +94,7 @@ const Signup = () => {
           <h1
             style={{
               display: "flex",
-              fontSize: "18px",
+              fontSize: "30px",
               position: "absolute",
               top: "20px",
               left: "20px",
@@ -110,7 +112,7 @@ const Signup = () => {
             width="50"
             height="50"
           />
-          <h1 style={{ marginTop: "0px" }}>Sign Up</h1>
+          <h1 style={{ marginTop: "0px" , fontFamily: "Laila" }}>Sign Up</h1>
 
           <Form.Group controlId="formGroupName">
             <Form.Control
@@ -157,17 +159,6 @@ const Signup = () => {
           </Form.Group>
           <div style={{ color: "red", marginTop: "10px" }}>{msg}</div>
           <Button
-            style={{
-              border: "none",
-              padding: "10px",
-              color: "white",
-              textAlign: "center",
-              display: "inline-block",
-              transition: "background-color 0.4s, color 0.4s",
-              cursor: "pointer",
-              width: "55%",
-              marginTop: "10px",
-            }}
             variant="primary"
             type="submit"
             className="w-100"
@@ -188,7 +179,7 @@ const Signup = () => {
                   marginTop: 0,
                   margin: 3,
                   fontWeight: "bold",
-                  color: "#6c5ce7",
+                  color: "black",
                 }}
               >
                 Sign In

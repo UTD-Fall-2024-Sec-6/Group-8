@@ -67,7 +67,7 @@ const Signin = () => {
           <h1
             style={{
               display: "flex",
-              fontSize: "18px",
+              fontSize: "30px",
               position: "absolute",
               top: "20px",
               left: "20px",
@@ -85,7 +85,7 @@ const Signin = () => {
             width="50"
             height="50"
           />
-          <h1 style={{ marginTop: "0px" }}>Sign in</h1>
+          <h1 style={{ marginTop: "0px", fontFamily: "'Laila'"}}>Welcome Back!</h1>
           <Form.Group controlId="formGroupUsername">
             <Form.Control
               type="text"
@@ -111,21 +111,11 @@ const Signin = () => {
           <div style={{ color: "darkred", marginBottom: "10px" }}>{msg}</div>
 
           <Button
-            style={{
-              border: "none",
-              padding: "10px",
-              color: "white",
-              textAlign: "center",
-              display: "inline-block",
-              transition: "background-color 0.4s, color 0.4s",
-              cursor: "pointer",
-              width: "55%",
-            }}
             variant="primary"
             type="submit"
             className="w-100a"
           >
-            Submit
+            Sign In
           </Button>
 
           <div
@@ -139,10 +129,10 @@ const Signin = () => {
             <Link to="/signup">
               <p
                 style={{
-                  marginTop: 20,
+                  marginTop: 0,
                   margin: 3,
                   fontWeight: "bold",
-                  color: "#6c5ce7",
+                  color: "black",
                 }}
               >
                 Sign Up

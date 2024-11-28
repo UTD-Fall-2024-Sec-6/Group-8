@@ -18,12 +18,11 @@ html, body {
 
 .center-formSignin Form {
   max-width: 390px;
-  max-height: 400px;
+  max-height: 600px;
   width: 100%;
   height: 100%;
-  padding: 20px;
-  border: 1px solid #808000;
-  background-color: #e6e6fa;
+  padding: 25px;
+  background-color: #D8F793;
   border-radius: 20px;
   box-shadow: 0 2px 4 px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -41,15 +40,22 @@ html, body {
   width: 50%;
 }
 .w-100a {
-  background-color: #6941c6;
+  background-color: #998650;
+  font-size: 18px;
+  font-family: 'Laila', sans-serif;
   color: white;
-  border: none;
   border-radius: 10px;
   border: 15px;
   transition: background-color 0.4s ease, color 0.4s ease;
+  border: none;
+  padding: 10px;
+  display: inline-block;
+  cursor: pointer;
+  width: 55%;
+  margin: 5%;
 }
 .w-100a:hover {
-  background-color: #7857c5; 
+  background-color: #a59876;
   color: white;
   border-radius: 10px;
   border: 15px;
