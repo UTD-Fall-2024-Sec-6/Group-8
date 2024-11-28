@@ -16,7 +16,7 @@ export default function GridPage() {
           height: "100vh",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
-          backgroundImage: 'url("images/bg3.png")',
+          // backgroundImage: 'url("images/bg3.png")',
           overflowX: "auto",
           
         }}
