@@ -81,9 +81,7 @@ const Signup = () => {
         justifyContent: "center", // Centers content vertically
         minHeight: "100vh", // Ensures the div fills the screen height
         width: "100vw",
-        // FIX ME - ADD NEW BACKGROUND
-        // backgroundImage: `url("images/purple.webp")`,
-        backgroundColor: "black",
+        backgroundImage: `url("images/8.png")`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center center",

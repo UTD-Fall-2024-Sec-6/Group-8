@@ -56,7 +56,7 @@ const Signin = () => {
         justifyContent: "center", // Centers content vertically
         minHeight: "100vh", // Ensures the div fills the screen height
         width: "100vw",
-        backgroundImage: `url("images/purple.webp")`,
+        backgroundImage: `url("images/8.png")`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center center",
