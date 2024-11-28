@@ -164,7 +164,7 @@ export default function GoalList({ gridId }) {
   };
   return (
     <div className="goallist">
-      <h2 className="grid-name">{gridName}</h2>
+      <h2 className="grid-name" >{gridName}</h2>
       <div>
         {isGenerated ? (
           // If grid is generated, show the list in grid layout

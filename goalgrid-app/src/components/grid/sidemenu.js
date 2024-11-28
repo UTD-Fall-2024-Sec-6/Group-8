@@ -34,27 +34,46 @@ export default function SideMenu() {
     navigate("/signin");
   };
   return (
-    <div className="SideMenu">
-      <h1 style={{ color: "#5C3D27" }} className="GoalGrid-Title">
-        GoalGrid
-      </h1>
+    <div className="SideMenu" style ={{display: 'flex', justifyContent: 'space-between', width: '100%'}}>
 
-      <div style={{ fontSize: "30px", marginTop: "150px", color: "#5C3D27" }}>
-        Hello {name}
+      <div> 
+        <h1
+            style={{
+              display: "flex",
+            fontSize: "30px",
+              position: "absolute",
+              top: "20px",
+              left: "20px",
+              margin: 0,
+              color: "#000000",
+            }}
+          >
+            GoalGrid
+          </h1>
       </div>
-      <div>
+
+      <div style={{ fontSize: "40px", color: "#000000", fontFamily: "Laila"}}>
+        Hello, {name}!
+      </div>
+
+
+      <div style = {{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginRight: "5%" }}>
+        <div>
         {" "}
-        <button style={{ marginTop: "200px" }} className="SettingsButton">
-          <BsPersonFill size={42} />{" "}
+        <button className="SettingsButton">
+          <BsPersonFill size={42} color="FDA230" />{" "}
         </button>{" "}
+        </div>
+
+        <button
+          style={{ marginTop: "30px" }}
+          onClick={signoutHandle}
+          className="SignOutButton"
+        >
+          Sign out
+        </button>
       </div>
-      <button
-        style={{ marginTop: "30px" }}
-        onClick={signoutHandle}
-        className="MenuButton"
-      >
-        Sign out
-      </button>
+      
     </div>
   );
 }

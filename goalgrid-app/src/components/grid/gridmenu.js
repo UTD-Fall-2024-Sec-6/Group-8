@@ -102,7 +102,7 @@ export default function Grid({ onGenerateData }) {
           fontWeight: "bold",
         }}
       >
-        <h1 className="addgrid-title">Grid's List</h1>
+        <h1 className="addgrid-title">My Grids</h1>
       </div>
 
       {/* Input and Button */}
@@ -163,7 +163,7 @@ export default function Grid({ onGenerateData }) {
             </div>
           ))
         ) : (
-          <div className="empty-grid-label">There is no grid yet.</div>
+          <div className="empty-grid-label">There are no grids</div>
         )}
       </div>
     </div>

@@ -23,12 +23,11 @@
 }
 
 
-.MenuButton, .SettingsButton {
+.SignOutButton, .SettingsButton {
   background-color: #F0EDFF;
   border-style: solid;
-  border-color: #7F669D;
+  border-color: #FDA230;
   border-width: 4px;
-  /*padding: 10px;*/
   width: 200px;
   height: 50px;
   border-radius: 20px;
@@ -36,19 +35,19 @@
   transition-property: background-color;
   font-family: laila;
   font-size: 20px;
-  color: #5C3D27;
+  color: #000000;
 }
 
 .SettingsButton {
   width: 75px;
 }
 
-.MenuButton:hover, .SettingsButton:hover {
+.SignOutButton:hover, .SettingsButton:hover {
   color: white;
-  background-color: #785d96;
+  background-color: #FDA230;
   cursor: pointer;
 }
 
-.MenuButton:active, .SettingsButton:active {
+.SignOutButton:active, .SettingsButton:active {
   background-color: azure;
 }

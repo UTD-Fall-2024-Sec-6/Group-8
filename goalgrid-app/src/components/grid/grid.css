@@ -1,5 +1,5 @@
 .Grid {
-  font-family: "comic sans ms";
+  font-family: "Laila";
   padding: 20px;
   max-width: 100vh;
   height: 100vh;
@@ -8,13 +8,13 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  background-color: #6a94c4;
+  background-color: #D8F793;
 }
 
 .addgrid-title {
   text-align: center;
   font-size: 30px;
-  color: white;
+  color: black;
   margin-bottom: 20px;
   position: absolute;
   left: 50%;
@@ -35,8 +35,6 @@
 .addgrid-input {
   border-width: 10;
   border-radius: 20px;
-  border-color: #7f669d;
-  color: #5c3d27;
   padding: 10px;
   font-size: 1rem;
   border: none;
@@ -45,21 +43,20 @@
 }
 
 .addgrid-addbutton {
-  border-width: 10;
   border-radius: 20px;
-  border-color: #e3aadd;
   padding: 10px 20px;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #5c3d27;
-  background-color: #f8f7d9;
+  background-color: #998650;
+  border: #a59876 ;
+  border-width: 30px;
+  font-size: 18px;
+  font-family: 'Laila', sans-serif;
+  color: white;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
 .addgrid-addbutton:hover {
-  color: #f8f7d9;
-  background-color: #78ce99;
+  background-color: #a59876;
 }
 
 .addgrid-addbutton:active {
@@ -111,7 +108,6 @@
 }
 
 .grid-item.selected {
-  border: 2px solid #ad75b4;
   box-shadow: 0 4px 8px rgba(255, 99, 71, 0.3);
 }
 
@@ -121,11 +117,9 @@
   right: -12%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: #f4e7f8;
+  color: #a59876;
   font-size: 1.5rem;
-  filter: blur(0.8px);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-  pointer-events: none;
 }
 .trashcan-button {
   background: none;
@@ -161,7 +155,7 @@
   left: 3px;
   width: 8px;
   height: 2px;
-  background: #665d9c;
+  background: #998650;
   border-radius: 15px;
 }
 .trashcan-icon:hover .lid {
@@ -173,7 +167,7 @@
   bottom: 0;
   width: 15px;
   height: 17px;
-  background: #665d9c;
+  background: #998650;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
 }

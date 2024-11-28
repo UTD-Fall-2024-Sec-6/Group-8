@@ -10,20 +10,24 @@ export default function GridPage() {
   };
   return (
     <>
+      
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr 4fr",
           height: "100vh",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundImage: 'url("images/bg3.png")',
           overflowX: "auto",
+          
         }}
       >
         <SideMenu />
-        <Grid onGenerateData={handleGridData} />
-        {gridData && <GoalList gridId={gridData} />}
+
+        <div style = {{ display: 'grid', gridTemplateColumns: '2fr 3fr' }}>
+          <Grid onGenerateData={handleGridData} />
+          {gridData && <GoalList gridId={gridData} />} 
+        </div>
+        
       </div>
     </>
   );
