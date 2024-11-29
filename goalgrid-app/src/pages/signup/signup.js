@@ -74,34 +74,12 @@ const Signup = () => {
   };
   return (
     <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center", // Centers content horizontally
-        justifyContent: "center", // Centers content vertically
-        minHeight: "100vh", // Ensures the div fills the screen height
-        width: "100vw",
-        backgroundImage: `url("images/8.png")`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center center",
-      }}
+      className="container"
+      style={{ backgroundImage: `url("images/8.png")` }}
     >
       <div className="center-formSignUp">
         <Form onSubmit={handleSubmit}>
-          <h1
-            style={{
-              display: "flex",
-              fontSize: "30px",
-              position: "absolute",
-              top: "20px",
-              left: "20px",
-              margin: 0,
-              color: "black",
-            }}
-          >
-            GoalGrid
-          </h1>
+          <h1 className="goalgrid-header">GoalGrid</h1>
 
           <img
             className="icon"
@@ -110,7 +88,7 @@ const Signup = () => {
             width="50"
             height="50"
           />
-          <h1 style={{ marginTop: "0px" , fontFamily: "Laila" }}>Sign Up</h1>
+          <h1 style={{ marginTop: "0px", fontFamily: "Laila" }}>Sign Up</h1>
 
           <Form.Group controlId="formGroupName">
             <Form.Control
@@ -156,32 +134,13 @@ const Signup = () => {
             />
           </Form.Group>
           <div style={{ color: "red", marginTop: "10px" }}>{msg}</div>
-          <Button
-            variant="primary"
-            type="submit"
-            className="w-100"
-          >
+          <Button variant="primary" type="submit" className="w-100">
             Submit
           </Button>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <p style={{ marginTop: 20, margin: 0 }}>Already have an account?</p>
+          <div className="signin-link-container">
+            <p>Already have an account?</p>
             <Link to="/signin">
-              <p
-                style={{
-                  marginTop: 0,
-                  margin: 3,
-                  fontWeight: "bold",
-                  color: "black",
-                }}
-              >
-                Sign In
-              </p>
+              <p className="bold-link">Sign In</p>
             </Link>
           </div>
         </Form>

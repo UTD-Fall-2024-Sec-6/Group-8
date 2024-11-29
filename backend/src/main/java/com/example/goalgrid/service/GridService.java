@@ -76,4 +76,50 @@ public class GridService {
         goalRepository.saveAll(goals);
 		return goals;
 	}
+	
+	public Grid saveStatus(Long gridId) {
+		Grid grid = gridRepository.findById(gridId).get();
+		List<Goal> goals = goalRepository.findByGridId(gridId);
+		int size = grid.getSize();
+		int[] rowMarks = new int[size];
+		int[] colMarks = new int[size];
+		int blackout = 0;
+		int diagonal1 = 0; // Top-left to bottom-right
+		int diagonal2 = 0; // Top-right to bottom-left
+		for (Goal goal : goals) {
+			System.out.println(goal.getName()+" "+goal.getRow()+" "+goal.getColumn()+" "+goal.isMarkComplete());
+			if (goal.isMarkComplete()) {
+				blackout++;
+				int row = goal.getRow() - 1;
+				int column = goal.getColumn() - 1;
+		        rowMarks[row]++;
+		        colMarks[column]++;
+		        if (row == column) 
+		            diagonal1++;
+		        if (row + column == size) 
+		            diagonal2++;
+			}
+		}
+		if(blackout == size*size) {
+			grid.setStatus(2);
+			return gridRepository.save(grid);
+		}
+		for (int count : rowMarks) {
+			if (count == size){
+				grid.setStatus(1);
+				return gridRepository.save(grid);
+			}
+		}
+		for (int count : colMarks) {
+		    if (count == size){
+				grid.setStatus(1);
+				return gridRepository.save(grid);
+			}
+		}
+		if (diagonal1 == size || diagonal2 == size) {
+			grid.setStatus(1);
+			return gridRepository.save(grid);
+		}
+		return grid;
+	}
 }

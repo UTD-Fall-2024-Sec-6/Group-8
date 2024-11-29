@@ -9,6 +9,7 @@ export default function GoalList({ gridId }) {
   const [selectedSize, setSelectedSize] = useState(null);
   const [newGoal, setNewGoal] = useState("");
   const [hoveredGoalId, setHoveredGoalId] = useState(null);
+  const [status, setStatus] = useState(0);
 
   // Fetch grid details and goals from the backend
   useEffect(() => {
@@ -30,6 +31,7 @@ export default function GoalList({ gridId }) {
         setGridName(gridData.gridName);
         setIsGenerated(gridData.generate);
         setSelectedSize(gridData.size);
+        setStatus(gridData.status);
 
         const goalsResponse = await fetch(
           `http://localhost:8080/goal/getGoals/${gridId}`,
@@ -103,7 +105,6 @@ export default function GoalList({ gridId }) {
         }
       );
       const goalList = await response.json();
-      console.log(goalList);
       setGoals(goalList);
       setIsGenerated(true); // Update state to reflect generated grid
     } catch (error) {
@@ -158,13 +159,35 @@ export default function GoalList({ gridId }) {
       const data = await response.json();
       setGoals(data);
       setHoveredGoalId(null);
+      const gridResponse = await fetch(
+        `http://localhost:8080/grid/getGrid/${gridId}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const gridData = await gridResponse.json();
+      if (gridData.status !== status) {
+        setStatus(gridData.status);
+        alert(
+          gridData.status === 1
+            ? "Bingo"
+            : gridData.status === 2
+            ? "Blackout"
+            : ""
+        );
+      }
     } catch (error) {
       console.error("Error during fetch operation:", error);
     }
   };
   return (
     <div className="goallist">
-      <h2 className="grid-name" >{gridName}</h2>
+      <h2 className="grid-name">{gridName}</h2>
+      <div>{status === 1 ? "Bingo" : status === 2 ? "Blackout" : ""}</div>
       <div>
         {isGenerated ? (
           // If grid is generated, show the list in grid layout
@@ -181,7 +204,6 @@ export default function GoalList({ gridId }) {
                   }
                   onMouseLeave={() => setHoveredGoalId(null)}
                 >
-                  {console.log(goal)}
                   {goal.goalName}
                   <button
                     className="markDone-button"
@@ -210,7 +232,7 @@ export default function GoalList({ gridId }) {
                 value={newGoal}
                 onChange={(e) => setNewGoal(e.target.value)}
                 onKeyDown={(e) => {
-                  if (e.key === 'Enter') {
+                  if (e.key === "Enter") {
                     handleAddGoal();
                   }
                 }}

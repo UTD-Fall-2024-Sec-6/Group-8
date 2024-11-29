@@ -1,12 +1,27 @@
+/* General Styles */
 html,
 body {
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
-  width: 100%; /* Ensure the body spans the full width */
-  height: 100%; /* Ensure the body spans the full height */
-  overflow: hidden; /* Prevent scrolling if necessary */
-  overflow: "auto"
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
 }
+
+/* Container Styles */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Form Wrapper */
 .center-formSignUp {
   display: flex;
   flex-direction: column;
@@ -16,48 +31,80 @@ body {
   width: 100%;
 }
 
-.center-formSignUp Form {
+.center-formSignUp form {
   max-width: 390px;
   max-height: 600px;
   width: 100%;
   height: 100%;
   padding: 25px;
-  background-color: #D8F793;
+  background-color: #d8f793;
   border-radius: 20px;
-  box-shadow: 0 2px 4 px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
+
+/* Icon */
 .center-formSignUp .icon {
   border-radius: 13px;
   margin-bottom: 20px;
 }
 
-.center-formSignUp Form .form-control {
+/* Form Control */
+.center-formSignUp form .form-control {
   margin-bottom: 20px;
   padding: 10px;
   border-radius: 10px;
   border: 15px;
   width: 50%;
 }
+
+/* Header */
+.goalgrid-header {
+  display: flex;
+  font-size: 30px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  margin: 0;
+  color: black;
+}
+
+/* Button */
 .w-100 {
   background-color: #998650;
   color: white;
   font-size: 18px;
-  font-family: 'Laila', sans-serif;
+  font-family: "Laila", sans-serif;
   border-radius: 10px;
-  border: 15px;
-  transition: background-color 0.4s ease, color 0.4s ease;
   border: none;
+  transition: background-color 0.4s ease, color 0.4s ease;
   padding: 10px;
   display: inline-block;
   cursor: pointer;
   width: 55%;
   margin: 5%;
 }
+
 .w-100:hover {
   background-color: #a59876;
   color: white;
   border-radius: 10px;
-  border: 15px;
   box-shadow: 0 1px 2px 0 rgba(45, 39, 44, 0.24);
+}
+
+/* Sign In Link */
+.signin-link-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signin-link-container p {
+  margin: 0;
+}
+
+.signin-link-container .bold-link {
+  margin: 3px;
+  font-weight: bold;
+  color: black;
 }

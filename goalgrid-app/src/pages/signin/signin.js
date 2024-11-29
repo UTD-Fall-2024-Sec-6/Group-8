@@ -49,94 +49,48 @@ const Signin = () => {
   };
   return (
     <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center", // Centers content horizontally
-        justifyContent: "center", // Centers content vertically
-        minHeight: "100vh", // Ensures the div fills the screen height
-        width: "100vw",
-        backgroundImage: `url("images/8.png")`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center center",
-      }}
+      className="signin-container"
+      style={{ backgroundImage: `url("images/8.png")` }}
     >
       <div className="center-formSignin">
         <Form onSubmit={handleSubmit}>
-          <h1
-            style={{
-              display: "flex",
-              fontSize: "30px",
-              position: "absolute",
-              top: "20px",
-              left: "20px",
-              margin: 0,
-              color: "black",
-            }}
-          >
-            GoalGrid
-          </h1>
+          <h1 className="signin-header">GoalGrid</h1>
           <img
-            style={{ marginTop: "20px" }}
-            className="icon"
+            className="signin-icon"
             src="favicon.ico"
-            alt=""
+            alt="Icon"
             width="50"
             height="50"
           />
-          <h1 style={{ marginTop: "0px", fontFamily: "'Laila'"}}>Welcome Back!</h1>
+          <h1 className="signin-title">Welcome Back!</h1>
           <Form.Group controlId="formGroupUsername">
             <Form.Control
               type="text"
               name="username"
               placeholder="Username"
-              required={true}
+              required
               value={formSignin.username}
               onChange={handleInputChange}
             />
           </Form.Group>
-
           <Form.Group controlId="formGroupPassword">
             <Form.Control
               type="password"
               name="password"
               placeholder="Password"
-              required={true}
+              required
               value={formSignin.password}
               onChange={handleInputChange}
             />
           </Form.Group>
-
-          <div style={{ color: "darkred", marginBottom: "10px" }}>{msg}</div>
-
-          <Button
-            variant="primary"
-            type="submit"
-            className="w-100a"
-          >
+          <div className="signin-error">{msg}</div>
+          <Button variant="primary" type="submit" className="w-100a">
             Sign In
           </Button>
-
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <p style={{ marginTop: 20, margin: 0 }}>Don't have an account?</p>
-            <Link to="/signup">
-              <p
-                style={{
-                  marginTop: 0,
-                  margin: 3,
-                  fontWeight: "bold",
-                  color: "black",
-                }}
-              >
-                Sign Up
-              </p>
+          <div className="signin-footer">
+            <p>Don't have an account?</p>
+            <Link to="/signup" className="signin-link">
+              Sign Up
             </Link>
           </div>
         </Form>

@@ -26,17 +26,20 @@ public class Grid {
 	@JsonProperty("gridName")
     String name;
 	@JsonProperty("size")
-    int size;
+    private int size;
 	
 	@Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
     private boolean isGenerate;
     
+	private int status;
+	
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     @JsonBackReference
     private User user;
     
-    @OneToMany(mappedBy = "grid", cascade = CascadeType.ALL, orphanRemoval = true)
+
+	@OneToMany(mappedBy = "grid", cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonIgnore
 	private List<Goal> goals;
     
@@ -66,6 +69,14 @@ public class Grid {
 
 	public void setSize(int size) {
 		this.size = size;
+	}
+	
+    public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
 	}
 
 	public boolean isGenerate() {

@@ -18,6 +18,7 @@ import com.example.goalgrid.model.Grid;
 import com.example.goalgrid.model.IdWrapper;
 import com.example.goalgrid.repository.GridRepository;
 import com.example.goalgrid.service.GoalService;
+import com.example.goalgrid.service.GridService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -29,6 +30,8 @@ public class GoalController {
 
 	@Autowired
 	private GoalService goalService;
+	@Autowired
+	private GridService gridService;
 	@Autowired
 	private GridRepository gridRepository;
 	
@@ -60,8 +63,9 @@ public class GoalController {
 	
 	@PostMapping("markDone/{gridId}")
     public ResponseEntity<List<Goal>> markGoalDone(@PathVariable Long gridId, @RequestBody IdWrapper id) {
-		goalService.markDone(id.getId());
+		goalService.markDone(gridId, id.getId());
 		List<Goal> goals = goalService.getGoals(gridId);
+		gridService.saveStatus(gridId);
 		return ResponseEntity.ok(goals);
     }
 }
