@@ -88,11 +88,8 @@ export default function AddGoals() {
   return (
     <div
       style={{
-        /*width: '1080px',
-      height: '1920px',*/
         display: "flex",
         flexDirection: "row",
-        /*height: '100vh',*/
         minHeight: "100vh",
         height: "auto",
         backgroundSize: "cover",

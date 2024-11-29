@@ -52,7 +52,7 @@ export default function SideMenu() {
           </h1>
       </div>
 
-      <div style={{ fontSize: "40px", color: "#000000", fontFamily: "Laila"}}>
+      <div style={{ fontSize: "35px", color: "#000000", fontFamily: "Laila"}}>
         Hello, {name}!
       </div>
 
@@ -66,7 +66,7 @@ export default function SideMenu() {
         </div>
 
         <button
-          style={{ marginTop: "30px" }}
+          style={{ marginTop: "20px" }}
           onClick={signoutHandle}
           className="SignOutButton"
         >

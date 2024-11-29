@@ -97,7 +97,7 @@ const Signup = () => {
               top: "20px",
               left: "20px",
               margin: 0,
-              color: "white",
+              color: "black",
             }}
           >
             GoalGrid

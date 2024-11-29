@@ -2,7 +2,7 @@
   font-family: "Laila";
   padding: 20px;
   max-width: 100vh;
-  height: 100vh;
+  height: 90%;
   margin: 0 auto;
   border-radius: 8px;
   position: relative;
@@ -21,7 +21,6 @@
   transform: translateX(-50%);
 }
 
-/* Input and Button Row */
 .addgrid-input-row {
   display: flex;
   align-items: center;
@@ -47,9 +46,9 @@
   padding: 10px 20px;
   background-color: #998650;
   border: #a59876 ;
-  border-width: 30px;
   font-size: 18px;
   font-family: 'Laila', sans-serif;
+  font-weight: bold;
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.1s ease;
@@ -82,12 +81,8 @@
 }
 
 .grid-list::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #e6f0f8, #a9c3ee);
+  background: #a8c960;
   border-radius: 5px;
-}
-
-.grid-list::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #d1d0d6, #467199); 
 }
 
 .grid-item {
