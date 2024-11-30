@@ -23,8 +23,8 @@
 }
 
 
-.SignOutButton, .SettingsButton {
-  background-color: #F0EDFF;
+.ProfileButton {
+  background-color: #FFFFFF;
   border-style: solid;
   border-color: #FDA230;
   border-width: 4px;
@@ -38,16 +38,12 @@
   color: #000000;
 }
 
-.SettingsButton {
+.ProfileButton {
   width: 75px;
 }
 
-.SignOutButton:hover, .SettingsButton:hover {
+.ProfileButton:hover {
   color: white;
-  background-color: #FDA230;
+  background-color: #f0d3af;
   cursor: pointer;
-}
-
-.SignOutButton:active, .SettingsButton:active {
-  background-color: azure;
 }

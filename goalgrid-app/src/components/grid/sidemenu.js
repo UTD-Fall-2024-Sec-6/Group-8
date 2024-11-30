@@ -33,6 +33,12 @@ export default function SideMenu() {
     localStorage.removeItem("authToken");
     navigate("/signin");
   };
+
+  const [menuVisible, setMenuVisible] = useState(false);
+  const toggleMenu = () => {
+    setMenuVisible(!menuVisible);
+  };
+
   return (
     <div className="SideMenu" style ={{display: 'flex', justifyContent: 'space-between', width: '100%'}}>
 
@@ -40,7 +46,7 @@ export default function SideMenu() {
         <h1
             style={{
               display: "flex",
-            fontSize: "30px",
+              fontSize: "30px",
               position: "absolute",
               top: "20px",
               left: "20px",
@@ -52,27 +58,33 @@ export default function SideMenu() {
           </h1>
       </div>
 
-      <div style={{ fontSize: "35px", color: "#000000", fontFamily: "Laila"}}>
+      <div style={{ fontSize: "35px", color: "#FFFFFF", fontFamily: "Laila", padding: "10px",backgroundColor: "#998650", borderRadius: '5px', boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)"}}>
         Hello, {name}!
       </div>
 
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginRight: '5%' }}>
+      <button className="ProfileButton" onClick={toggleMenu}>
+        <BsPersonFill size={42} color="FDA230" />
+      </button>
 
-      <div style = {{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginRight: "5%" }}>
-        <div>
-        {" "}
-        <button className="SettingsButton">
-          <BsPersonFill size={42} color="FDA230" />{" "}
-        </button>{" "}
-        </div>
-
-        <button
-          style={{ marginTop: "20px" }}
-          onClick={signoutHandle}
-          className="SignOutButton"
-        >
-          Sign out
-        </button>
-      </div>
+      {menuVisible && (
+          <button className="SignOutButton"
+            style={{
+              marginTop: '10px',
+              padding: '10px 20px',
+              fontSize: '16px',
+              backgroundColor: '#FDA230',
+              color: 'white',
+              border: '2px solid #FFFFFF',
+              borderRadius: '5px',
+              cursor: 'pointer',
+            }}
+            onClick={signoutHandle}
+          >
+            Sign out
+          </button>
+      )}
+    </div>
       
     </div>
   );
