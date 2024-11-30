@@ -58,7 +58,7 @@ export default function SideMenu() {
           </h1>
       </div>
 
-      <div style={{ fontSize: "35px", color: "#FFFFFF", fontFamily: "Laila", padding: "10px",backgroundColor: "#998650", borderRadius: '5px', boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)"}}>
+      <div style={{ fontSize: "40px", color: "#FFFFFF", fontFamily: "Laila", padding: "10px", borderRadius: '5px', textShadow: "3px 3px 5px rgba(0, 0, 0, 0.7)"}}>
         Hello, {name}!
       </div>
 
