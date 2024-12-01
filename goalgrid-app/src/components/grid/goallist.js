@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./goals.css";
+
 export default function GoalList({ gridId }) {
   const token = localStorage.getItem("authToken");
   const [gridName, setGridName] = useState("");
@@ -26,7 +27,7 @@ export default function GoalList({ gridId }) {
           }
         );
         const gridData = await gridResponse.json();
-        console.log(gridData);
+        //console.log("Grid data HERE: " + JSON.stringify(gridData));
         setGridName(gridData.gridName);
         setIsGenerated(gridData.generate);
         setSelectedSize(gridData.size);
@@ -42,6 +43,7 @@ export default function GoalList({ gridId }) {
           }
         );
         const goalsData = await goalsResponse.json();
+        //console.log("Goals data HERE: " + JSON.stringify(goalsData));
         setGoals(goalsData);
       } catch (error) {
         console.error("Error fetching grid details:", error);
@@ -260,6 +262,7 @@ export default function GoalList({ gridId }) {
                 disabled={goals.length < 9}
                 onClick={() => handleSizeClick(3)}
                 className={selectedSize === 3 ? "selected" : ""}
+                data-testid="TestBtnGrid9"
               >
                 3x3
               </button>
@@ -267,6 +270,7 @@ export default function GoalList({ gridId }) {
                 disabled={goals.length < 16}
                 onClick={() => handleSizeClick(4)}
                 className={selectedSize === 4 ? "selected" : ""}
+                data-testid="TestBtnGrid16"
               >
                 4x4
               </button>
@@ -274,6 +278,7 @@ export default function GoalList({ gridId }) {
                 disabled={goals.length < 25}
                 onClick={() => handleSizeClick(5)}
                 className={selectedSize === 5 ? "selected" : ""}
+                data-testid="TestBtnGrid25"
               >
                 5x5
               </button>
