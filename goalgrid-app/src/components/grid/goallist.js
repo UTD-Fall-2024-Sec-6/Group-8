@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./goals.css";
+
 export default function GoalList({ gridId }) {
   const token = localStorage.getItem("authToken");
   const [gridName, setGridName] = useState("");
@@ -27,7 +28,7 @@ export default function GoalList({ gridId }) {
           }
         );
         const gridData = await gridResponse.json();
-        console.log(gridData);
+        console.log("Grid data HERE: " + JSON.stringify(gridData));
         setGridName(gridData.gridName);
         setIsGenerated(gridData.generate);
         setSelectedSize(gridData.size);
@@ -44,6 +45,7 @@ export default function GoalList({ gridId }) {
           }
         );
         const goalsData = await goalsResponse.json();
+        console.log("Goals data HERE: " + JSON.stringify(goalsData));
         setGoals(goalsData);
       } catch (error) {
         console.error("Error fetching grid details:", error);

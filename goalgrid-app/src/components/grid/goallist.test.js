@@ -368,4 +368,82 @@ describe(GoalList, () => {
     expect(TestButton1).toBeEnabled();
     expect(TestButton2).toBeEnabled();
   });
+
+  //Test #1 for Reward for Grid Completion (UC#11)
+  it("When grid is not complete, no completion message displayed", async () => {
+    // Test values for grid and goal list
+    const testGrid = { id:1733111695529, status:0, generate:true, gridName:"TestGrid", size:3}; //STATUS = 0 means NOT COMPLETE grid.
+
+    //create a list of NINE goals
+    let testGoalList = [{id:1733111703257, column:1,row:1,markComplete:false,goalName:"8"},{id:1733111699047,column:2,row:1,markComplete:false,goalName:"3"},{id:1733111702853,column:3,row:1,markComplete:false,goalName:"7"},{id:1733111701307,column:1,row:2,markComplete:false,goalName:"6"},{id:1733111698146,column:2,row:2,markComplete:false,goalName:"1"},{id:1733111700592,column:3,row:2,markComplete:false,goalName:"5"},{id:1733111703959,column:1,row:3,markComplete:false,goalName:"9"},{id:1733111699557,column:2,row:3,markComplete:false,goalName:"4"},{id:1733111698572,column:3,row:3,markComplete:false,goalName:"2"}]
+    //console.log(testGoalList);
+
+    fetch.mockResolvedValueOnce({
+      json: jest.fn().mockResolvedValue(testGrid),
+    }); // Simulate a Grid fetch
+    fetch.mockResolvedValueOnce({
+      json: jest.fn().mockResolvedValue(testGoalList),
+    }); // Simulate a Goal List fetch
+
+    render(<GoalList gridId={1733111695529} />);
+
+    await act(async () => {
+      await waitFor(() => screen.getByTestId("TestStatus"));
+    });
+
+    const TestStatus = screen.getByTestId("TestStatus").textContent;
+    expect(TestStatus).toEqual("")
+  });
+
+  //Test #2 for Reward for Grid Completion (UC#11)
+  it("When grid has one row complete, show 'Bingo' completion message", async () => {
+    // Test values for grid and goal list
+    const testGrid = { id:1733111695529, status:1, generate:true, gridName:"TestGrid", size:3}; //STATUS = 1 means BINGO on grid.
+
+    //create a list of NINE goals
+    let testGoalList = [{id:1733111703257, column:1,row:1,markComplete:false,goalName:"8"},{id:1733111699047,column:2,row:1,markComplete:false,goalName:"3"},{id:1733111702853,column:3,row:1,markComplete:false,goalName:"7"},{id:1733111701307,column:1,row:2,markComplete:true,goalName:"6"},{id:1733111698146,column:2,row:2,markComplete:true,goalName:"1"},{id:1733111700592,column:3,row:2,markComplete:true,goalName:"5"},{id:1733111703959,column:1,row:3,markComplete:false,goalName:"9"},{id:1733111699557,column:2,row:3,markComplete:false,goalName:"4"},{id:1733111698572,column:3,row:3,markComplete:false,goalName:"2"}]
+    //console.log(testGoalList);
+
+    fetch.mockResolvedValueOnce({
+      json: jest.fn().mockResolvedValue(testGrid),
+    }); // Simulate a Grid fetch
+    fetch.mockResolvedValueOnce({
+      json: jest.fn().mockResolvedValue(testGoalList),
+    }); // Simulate a Goal List fetch
+
+    render(<GoalList gridId={1733111695529} />);
+
+    await act(async () => {
+      await waitFor(() => screen.getByTestId("TestStatus"));
+    });
+
+    const TestStatus = screen.getByTestId("TestStatus").textContent;
+    expect(TestStatus).toEqual("Bingo")
+  });
+
+  //Test #3 for Reward for Grid Completion (UC#11)
+  it("When grid has all goals complete, show 'Blackout' completion message", async () => {
+    // Test values for grid and goal list
+    const testGrid = { id:1733111695529, status:2, generate:true, gridName:"TestGrid", size:3}; //STATUS = 1 means BLACKOUT on grid.
+
+    //create a list of NINE goals
+    let testGoalList = [{id:1733111703257, column:1,row:1,markComplete:true,goalName:"8"},{id:1733111699047,column:2,row:1,markComplete:true,goalName:"3"},{id:1733111702853,column:3,row:1,markComplete:true,goalName:"7"},{id:1733111701307,column:1,row:2,markComplete:true,goalName:"6"},{id:1733111698146,column:2,row:2,markComplete:true,goalName:"1"},{id:1733111700592,column:3,row:2,markComplete:true,goalName:"5"},{id:1733111703959,column:1,row:3,markComplete:true,goalName:"9"},{id:1733111699557,column:2,row:3,markComplete:true,goalName:"4"},{id:1733111698572,column:3,row:3,markComplete:true,goalName:"2"}]
+    //console.log(testGoalList);
+
+    fetch.mockResolvedValueOnce({
+      json: jest.fn().mockResolvedValue(testGrid),
+    }); // Simulate a Grid fetch
+    fetch.mockResolvedValueOnce({
+      json: jest.fn().mockResolvedValue(testGoalList),
+    }); // Simulate a Goal List fetch
+
+    render(<GoalList gridId={1733111695529} />);
+
+    await act(async () => {
+      await waitFor(() => screen.getByTestId("TestStatus"));
+    });
+
+    const TestStatus = screen.getByTestId("TestStatus").textContent;
+    expect(TestStatus).toEqual("Blackout")
+  });
 });
