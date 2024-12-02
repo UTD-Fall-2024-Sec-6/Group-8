@@ -45,6 +45,9 @@ body {
 
 /* Icon */
 .center-formSignUp .icon {
+  width: 80px;
+  height: 80px;
+  margin-top: 20px;
   border-radius: 13px;
   margin-bottom: 20px;
 }
@@ -73,7 +76,7 @@ body {
 .w-100 {
   background-color: #998650;
   color: white;
-  font-size: 18px;
+  font-size: 20px;
   font-family: "Laila", sans-serif;
   border-radius: 10px;
   border: none;
@@ -86,7 +89,7 @@ body {
 }
 
 .w-100:hover {
-  background-color: #a59876;
+  background-color: #83610a;
   color: white;
   border-radius: 10px;
   box-shadow: 0 1px 2px 0 rgba(45, 39, 44, 0.24);
@@ -98,6 +101,9 @@ body {
   align-items: center;
   justify-content: center;
 }
+.signin-link-container .bold-link:hover {
+  color: #85410a;
+}
 
 .signin-link-container p {
   margin: 0;
@@ -106,5 +112,5 @@ body {
 .signin-link-container .bold-link {
   margin: 3px;
   font-weight: bold;
-  color: black;
+  color: #b8731a;
 }

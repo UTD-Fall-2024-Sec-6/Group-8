@@ -1,5 +1,6 @@
 /* Ensure full-page container styling */
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -50,6 +51,8 @@ html, body {
 }
 
 .signin-icon {
+  width: 80px;
+  height: 80px;
   margin-top: 20px;
   border-radius: 13px;
   margin-bottom: 20px;
@@ -75,7 +78,7 @@ html, body {
 
 .w-100a {
   background-color: #998650;
-  font-size: 18px;
+  font-size: 20px;
   font-family: "Laila", sans-serif;
   color: white;
   border-radius: 10px;
@@ -88,7 +91,7 @@ html, body {
 }
 
 .w-100a:hover {
-  background-color: #a59876;
+  background-color: #83610a;
   color: white;
   box-shadow: 0 1px 2px rgba(45, 39, 44, 0.24);
 }
@@ -103,6 +106,10 @@ html, body {
 .signin-link {
   margin: 0 3px;
   font-weight: bold;
-  color: black;
+  color: #b8731a;
   text-decoration: underline;
+  cursor: pointer;
+}
+.signin-link:hover {
+  color: #85410a;
 }

@@ -2,7 +2,7 @@
   font-family: "Laila";
   padding: 20px;
   max-width: 100vh;
-  height: 90%;
+  height: 100vh;
   margin: 0 auto;
   border-radius: 8px;
   position: relative;
@@ -55,7 +55,7 @@
 }
 
 .addgrid-addbutton:hover {
-  background-color: #a59876;
+  background-color: #4d4121;
 }
 
 .addgrid-addbutton:active {
@@ -137,7 +137,7 @@
   bottom: 18px;
   width: 15px;
   height: 4px;
-  background: #665d9c;
+  background: #998650;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   border-bottom-left-radius: 8px;

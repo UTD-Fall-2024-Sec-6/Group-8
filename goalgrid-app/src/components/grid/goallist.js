@@ -174,9 +174,9 @@ export default function GoalList({ gridId }) {
         setStatus(gridData.status);
         alert(
           gridData.status === 1
-            ? "Bingo"
+            ? "Congratulations! You got a Bingo 🎉"
             : gridData.status === 2
-            ? "Blackout"
+            ? "Congratulations! You achieved a Blackout 🎊"
             : ""
         );
       }
@@ -186,8 +186,10 @@ export default function GoalList({ gridId }) {
   };
   return (
     <div className="goallist">
-      <h2 className="grid-name">{gridName}</h2>
-      <div>{status === 1 ? "Bingo" : status === 2 ? "Blackout" : ""}</div>
+      <h1 className="grid-name">{gridName}</h1>
+      <div className="goalStatus">
+        {status === 1 ? "BINGO" : status === 2 ? "BLACKOUT" : ""}
+      </div>
       <div>
         {isGenerated ? (
           // If grid is generated, show the list in grid layout
