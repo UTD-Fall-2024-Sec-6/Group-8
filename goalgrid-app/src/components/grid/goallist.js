@@ -282,6 +282,7 @@ export default function GoalList({ gridId }) {
                 disabled={goals.length < 9}
                 onClick={() => handleSizeClick(3)}
                 className={selectedSize === 3 ? "selected" : ""}
+                data-testid="TestBtnGrid9"
               >
                 3x3
               </button>
@@ -289,6 +290,7 @@ export default function GoalList({ gridId }) {
                 disabled={goals.length < 16}
                 onClick={() => handleSizeClick(4)}
                 className={selectedSize === 4 ? "selected" : ""}
+                data-testid="TestBtnGrid16"
               >
                 4x4
               </button>
@@ -296,6 +298,7 @@ export default function GoalList({ gridId }) {
                 disabled={goals.length < 25}
                 onClick={() => handleSizeClick(5)}
                 className={selectedSize === 5 ? "selected" : ""}
+                data-testid="TestBtnGrid25"
               >
                 5x5
               </button>
