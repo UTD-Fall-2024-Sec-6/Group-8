@@ -396,7 +396,7 @@ describe(GoalList, () => {
   });
 
   //Test #2 for Reward for Grid Completion (UC#11)
-  it("When grid has one row complete, show 'Bingo' completion message", async () => {
+  it("When grid has one row complete, show 'BINGO' completion message", async () => {
     // Test values for grid and goal list
     const testGrid = { id:1733111695529, status:1, generate:true, gridName:"TestGrid", size:3}; //STATUS = 1 means BINGO on grid.
 
@@ -418,11 +418,11 @@ describe(GoalList, () => {
     });
 
     const TestStatus = screen.getByTestId("TestStatus").textContent;
-    expect(TestStatus).toEqual("Bingo")
+    expect(TestStatus).toEqual("BINGO")
   });
 
   //Test #3 for Reward for Grid Completion (UC#11)
-  it("When grid has all goals complete, show 'Blackout' completion message", async () => {
+  it("When grid has all goals complete, show 'BLACKOUT' completion message", async () => {
     // Test values for grid and goal list
     const testGrid = { id:1733111695529, status:2, generate:true, gridName:"TestGrid", size:3}; //STATUS = 1 means BLACKOUT on grid.
 
@@ -444,6 +444,6 @@ describe(GoalList, () => {
     });
 
     const TestStatus = screen.getByTestId("TestStatus").textContent;
-    expect(TestStatus).toEqual("Blackout")
+    expect(TestStatus).toEqual("BLACKOUT")
   });
 });
