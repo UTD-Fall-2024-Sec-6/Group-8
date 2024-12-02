@@ -4,7 +4,7 @@
   align-items: center;
   padding: 8px 16px;
   background-color: #998650;
-  color: #FFFFFF;
+  color: #ffffff;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   height: auto;
   width: 100%;
@@ -13,41 +13,44 @@
 
 /* Greeting Text Styling */
 .GreetingText {
-  font-family: 'Laila', sans-serif;
+  font-family: "Laila", sans-serif;
   font-size: 18px;
   font-weight: 500;
-  color: #FFFFFF;
+  color: #ffffff;
   margin: 0;
 }
 
 /* Title Styling */
 .Header h1 {
-  font-family: 'Laila', sans-serif;
+  font-family: "Laila", sans-serif;
   font-size: 22px;
-  color: #FFFFFF;
+  color: #ffffff;
   margin: 0;
 }
 
 /* Button Styling */
-.SettingsButton, .SignOutButton {
-  background-color: #6D5A3E;
+.SettingsButton,
+.SignOutButton {
+  background-color: #6d5a3e;
   border: none;
   border-radius: 6px;
   padding: 4px 8px;
-  font-family: 'Laila', sans-serif;
+  font-family: "Laila", sans-serif;
   font-size: 14px;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.SettingsButton:hover, .SignOutButton:hover {
-  background-color: #C3A776;
+.SettingsButton:hover,
+.SignOutButton:hover {
+  background-color: #c3a776;
   color: #000000;
 }
 
-.SettingsButton:active, .SignOutButton:active {
-  background-color: #998650; 
+.SettingsButton:active,
+.SignOutButton:active {
+  background-color: #a0894b;
 }
 
 /* Dropdown Menu Styling */
@@ -56,7 +59,7 @@
   position: absolute;
   top: 40px;
   right: 16px;
-  background-color: #6D5A3E;
+  background-color: #6d5a3e;
   border-radius: 8px;
   padding: 3px 3px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
@@ -65,10 +68,9 @@
 
 .DropdownMenu .SignOutButton {
   width: 100%;
-  background-color: #C3A776; 
+  background-color: #c3a776;
   color: #000000;
 }
-
 .DropdownMenu .SignOutButton:hover {
   background-color: #998650;
 }
