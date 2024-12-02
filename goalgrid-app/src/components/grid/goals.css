@@ -6,7 +6,7 @@
 }
 
 .grid-name {
-  font-family: "Comic Sans MS";
+  font-family: "Laila", sans-serif;
   font-size: 30px;
   color: #000000;
   margin-top: 0px;
@@ -227,7 +227,7 @@ li.highlighted {
 .goalStatus {
   font-size: 50px;
   font-weight: bolder;
-  font-family: Copperplate;
+  font-family: "Laila", sans-serif;
   color: #e02d0e;
   margin-bottom: none;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
