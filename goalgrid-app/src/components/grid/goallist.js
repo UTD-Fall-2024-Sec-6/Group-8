@@ -189,7 +189,7 @@ export default function GoalList({ gridId }) {
   return (
     <div className="goallist">
       <h1 className="grid-name">{gridName}</h1>
-      <div className="goalStatus">
+      <div className="goalStatus" data-testid="TestStatus">
         {status === 1 ? "BINGO" : status === 2 ? "BLACKOUT" : ""}
       </div>
       <div>
