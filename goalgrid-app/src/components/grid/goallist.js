@@ -28,7 +28,7 @@ export default function GoalList({ gridId }) {
           }
         );
         const gridData = await gridResponse.json();
-        console.log("Grid data HERE: " + JSON.stringify(gridData));
+        //console.log("Grid data HERE: " + JSON.stringify(gridData));
         setGridName(gridData.gridName);
         setIsGenerated(gridData.generate);
         setSelectedSize(gridData.size);
@@ -45,7 +45,7 @@ export default function GoalList({ gridId }) {
           }
         );
         const goalsData = await goalsResponse.json();
-        console.log("Goals data HERE: " + JSON.stringify(goalsData));
+        //console.log("Goals data HERE: " + JSON.stringify(goalsData));
         setGoals(goalsData);
       } catch (error) {
         console.error("Error fetching grid details:", error);
