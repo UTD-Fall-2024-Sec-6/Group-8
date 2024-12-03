@@ -34,7 +34,18 @@ To run the backend:
 3. Locate the GoalgridApplication class (annotated with `@SpringBootApplication`).
 4. Right-click on the class and select `Run As -> Spring Boot App`.
 
-### 2. Frontend (React.js)
+### 2. Database (MySQL)
+To run the database MySQL
+1. Install MySQL.
+2. (Optional) Recommended to install MySQL Workbench.
+3. Add MySQL connection at Hostname: 127.0.0.1; and Port: 3306.
+4. Set username to "root".
+5. Create a password.
+6. Go to backend/src/main/resources/application.properties and edit the password to match the one create in step 5.
+7. Save the file and run backend (refer to 1. Backend (Spring Boot) section above)
+
+
+### 3. Frontend (React.js)
 
 To run the actual app:
 
